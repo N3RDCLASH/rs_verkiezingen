@@ -6,6 +6,26 @@
     --grey: #EBEBEB;
 }
 
+body {
+    background-color: #EBEBEB;
+}
+
+.primary {
+    background-color: var(--primary);
+}
+
+.primary-light {
+    background-color: var(--primary-light);
+}
+
+.dark {
+    background-color: var(--dark);
+}
+
+.grey {
+    background-color: var(--grey);
+}
+
 .primary-text {
     color: var(--primary);
 }
@@ -44,6 +64,45 @@
     color: white;
 }
 
+.btn {
+    border-radius: 0.4em;
+}
+
+.card {
+    border-radius: 0.9em;
+}
+
+.card-header-floating {
+    display: block;
+    height: 90px;
+    width: 90%;
+    min-width: 90px;
+    transform: translate(0%, -30%);
+    margin: 0 auto;
+    margin-top: 2em;
+    color: white;
+    /* background: linear-gradient(90deg, #45e042 0%, #5cca59 100%); */
+    background: var(--primary-light);
+    padding: 10px 10px;
+    border-radius: 6px;
+}
+
+.card-header-floating.with-icon {
+    width: 25% !important;
+    margin: 0 27px !important;
+    border-radius: 15px !important;
+}
+
+.card-header-floating.with-icon .material-icons {
+    display: block;
+    text-align: center;
+    padding: 20px;
+}
+
+.card-subtitle {
+    display: block;
+}
+
 .rsv-input {
     height: 1.5rem !important;
     font-size: 16px !important;
@@ -61,6 +120,7 @@
     width: -webkit-fill-available !important;
     width: -moz-available !important;
     width: fill available !important;
+    font-family: 'Montserrat';
 }
 
 .rsv-input-label {
@@ -77,12 +137,28 @@
 
 .rsv-input-icon {
     position: absolute;
-    bottom: 0.8em;
+    bottom: 0.9em;
     left: 1.1em;
 }
 
 form .row {
     margin-bottom: 0 !important;
+}
+
+.main-content {
+    padding-left: 300px;
+}
+
+.login-btn {
+    height: 3.4em;
+    background-color: var(--primary);
+    font-family: 'Montserrat';
+}
+
+nav {
+    background-color: #EBEBEB !important;
+    color: black;
+    box-shadow: none!important;
 }
 
 .waves {
@@ -93,15 +169,6 @@ form .row {
     height: 100vh;
     margin: 0;
     background-repeat: no-repeat;
-}
-
-.btn {
-    border-radius: 0.4em;
-}
-
-.login-btn {
-    height: 3.4em;
-    background-color: var(--primary);
 }
 
 /* .btn:disabled {
