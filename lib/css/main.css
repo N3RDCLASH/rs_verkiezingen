@@ -18,15 +18,15 @@ body {
 }
 
 .primary {
-    background-color: var(--primary);
+    background-color: var(--primary)!important;
 }
 
 .primary-light {
-    background-color: var(--primary-light);
+    background-color: var(--primary-light)!important;
 }
 
 .dark {
-    background-color: var(--dark);
+    background-color: var(--dark)!important;
 }
 
 .grey {
@@ -68,7 +68,11 @@ body {
 }
 
 ::placeholder {
-    color: white;
+    /* color: white; */
+}
+
+::placeholder:disabled {
+    color: grey;
 }
 
 .btn {
@@ -88,7 +92,6 @@ body {
     margin: 0 auto;
     margin-top: 2em;
     color: white;
-    /* background: linear-gradient(90deg, #45e042 0%, #5cca59 100%); */
     background: var(--primary-light);
     padding: 10px 10px;
     border-radius: 6px;
@@ -110,20 +113,72 @@ body {
     display: block;
 }
 
+.form-step-container>.visible {
+    visibility: visible;
+    opacity: 1;
+}
+
+.form-step-container>.done {
+    opacity: 0;
+    visibility: hidden;
+}
+
+.progress-milestone-container {
+    transform: translateY(-44px)!important;
+    display: flex;
+    justify-content: space-between;
+}
+
+.progress-milestone-container>.circle-container {
+    display: flex;
+    flex-direction: column;
+}
+
+.milestone {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    background-color: var(--primary-light);
+    padding: 0!important;
+    justify-content: center;
+    display: flex;
+    /* vertical-align: middle; */
+    align-items: center;
+}
+
+.milestone-text {
+    margin-top: 0.4em;
+    font-family: 'Montserrat';
+    color: var(--dark);
+    display: block;
+}
+
+.milestone.personal {}
+
+.milestone.address {}
+
+.milestone.finished {
+    align-self: flex-end;
+}
+
 .rsv-input {
     height: 1.5rem !important;
     font-size: 16px !important;
-    margin: 0 0 8px 0 !important;
     border-radius: 0.5em !important;
     border: #ced4da 1px solid !important;
     padding: 13px 3px !important;
-    background-color: var(--primary-light)!important;
-    color: white;
+    /* background-color: var(--primary-light)!important; */
+    /* color: white; */
     /* font-family: 'Montser'; */
+}
+
+.rsv-input:disabled {
+    /* background-color: transparent!important; */
 }
 
 .rsv-input.with-icon {
     padding-left: 2.8em!important;
+    margin: 0 0 8px 0 !important;
     width: -webkit-fill-available !important;
     width: -moz-available !important;
     width: fill available !important;
@@ -146,6 +201,19 @@ body {
     position: absolute;
     bottom: 0.9em;
     left: 1.1em;
+}
+
+.rsv-btn {
+    height: 3.4em;
+    font-family: 'Montserrat', sans-serif;
+}
+
+.rsv-select-content {
+    border-radius: 0.3em 0.3em
+}
+
+.rsv-select-content>li>span {
+    color: black!important;
 }
 
 form .row {
@@ -176,6 +244,10 @@ nav ul a {
     font-family: 'Montserrat', sans-serif;
 }
 
+.sidenav li>a:hover {
+    background-color: transparent;
+}
+
 nav-block {
     margin-top: 65px;
     display: block;
@@ -191,8 +263,8 @@ nav-block li {
     padding-left: 20px;
 }
 
-nav-block li.active {
-    background: var(--primary-light);
+nav-block li:hover {
+    background-color: rgba(0, 0, 0, 0.05);
 }
 
 nav-block li a {
