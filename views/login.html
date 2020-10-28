@@ -23,7 +23,7 @@
                         <i class="material-icons rsv-input-icon primary-text">
                             mail_outline
                         </i>
-                        <input placeholder="Email" id="email" type="text" class="validate rsv-input with-icon">
+                        <input placeholder="Email" id="email" type="text" class="validate rsv-input with-icon" required>
                         <!-- <label for="first_name rsv-input-label">First Name</label> -->
                     </div>
                 </div>
@@ -33,13 +33,17 @@
                             lock_outline
                         </i>
                         <input placeholder="Wachtwoord" id="password" type="password"
-                            class="validate rsv-input with-icon">
+                            class="validate rsv-input with-icon" required>
                         <!-- <label for="first_name rsv-input-label">First Name</label> -->
                     </div>
                 </div>
+                <span>
+                    Nog niet geregistreerd?<a href="register.html"> Klik hier</a>
+                </span>
                 <div class="row">
                     <button class="waves-effect waves-light btn col s6 right login-btn" type="submit"
-                        name="action">Submit
+                        name="submit_persoonlijke_gegevens" id="submit_persoonlijke_gegevens">Log
+                        In
                         <i class="material-icons right">send</i>
                     </button>
                 </div>

@@ -118,9 +118,10 @@ body {
     opacity: 1;
 }
 
-.form-step-container>.done {
+.form-step-container>.hidden {
     opacity: 0;
     visibility: hidden;
+    display: none;
 }
 
 .progress-milestone-container {
@@ -162,11 +163,12 @@ body {
 }
 
 .rsv-input {
-    height: 1.5rem !important;
+    height: 1.2rem !important;
     font-size: 16px !important;
     border-radius: 0.5em !important;
     border: #ced4da 1px solid !important;
     padding: 13px 3px !important;
+    font-family: 'Montserrat', sans-serif;
     /* background-color: var(--primary-light)!important; */
     /* color: white; */
     /* font-family: 'Montser'; */
@@ -210,6 +212,10 @@ body {
 
 .rsv-select-content {
     border-radius: 0.3em 0.3em
+}
+
+.rsv-select-content>li>span {
+    color: black!important;
 }
 
 .rsv-select-content>li>span {
