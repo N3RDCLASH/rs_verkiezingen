@@ -14,6 +14,7 @@ CREATE TABLE rs_verkiezingen.gebruikers(
 CREATE TABLE rs_verkiezingen.burgers(
 burger_id int auto_increment primary key, 
 id_nummer varchar(50),
+burger_password varchar(255),
 burger_jaardag date,
 district int, 
 gestemd varchar(5),
