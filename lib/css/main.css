@@ -11,6 +11,12 @@
     .main-content {
         padding-left: 0 !important;
     }
+    .waves {
+        height: 30vh!important;
+    }
+    #login-form-container {
+        height: auto!important;
+    }
 }
 
 body {
@@ -80,7 +86,7 @@ body {
 }
 
 .card {
-    border-radius: 0.9em;
+    border-radius: 0.6em;
 }
 
 .card-header-floating {
@@ -260,13 +266,14 @@ nav-block {
 }
 
 nav-block li {
-    /* width: 80%; */
+    width: 90%;
     margin: 0 auto;
     text-align: center;
     border-radius: 5px;
     margin-bottom: 8px;
-    height: 35px;
+    height: 41px;
     padding-left: 20px;
+    align-content: center;
 }
 
 nav-block li:hover {
@@ -349,9 +356,9 @@ nav-block li i.material-icons {
 }
 
 .waves {
-    background: url(../assets/waves.svg);
+    background: url(../assets/charts2.svg);
     background-size: contain;
-    background-position: bottom;
+    background-position: center;
     /* background-color: antiquewhite; */
     height: 100vh;
     margin: 0;
