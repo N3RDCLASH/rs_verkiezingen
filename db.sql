@@ -7,6 +7,7 @@ CREATE TABLE rs_verkiezingen.district(
 
 CREATE TABLE rs_verkiezingen.gebruikers(
 	gebruikers_id int auto_increment primary key, 
+	rol varchar(50)
 	gebruikers_naam varchar(100),
 	gebruikers_password varchar(255)
 );
