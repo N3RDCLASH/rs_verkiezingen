@@ -43,13 +43,13 @@
     <div class="sidebar">
         <ul id="slide-out" class="sidenav sidenav-fixed">
             <nav-block>
-                <li class="<?php echo ((\Request::is('home'))?"active":"");?>">
+                <li class="<?php echo ((\Request::is('home')) ? "active" : ""); ?>">
                     <i class="material-icons left">
                         dashboard
                     </i>
                     <a href="home">Dashboard</a>
                 </li>
-                <li class="<?php echo ((\Request::is('stemmen'))?"active":"");?>">
+                <li class="<?php echo ((\Request::is('stemmen')) ? "active" : ""); ?>">
                     <i class="material-icons left">
                         how_to_vote
                     </i>
@@ -60,11 +60,10 @@
     <div class="main-content">
         @yield('content')
     </div>
-    
+
     <script type="application/javascript" src="{{asset('js/node_modules/chart.js/dist/Chart.min.js')}}"></script>
-    <script type="application/javascript" src="{{asset('js/dashBoardCharts.js')}}"></script>
     <script type="application/javascript" src="{{asset('js/materialize.min.js')}}"></script>
-    <script type="application/javascript" src={{asset('js/main.js')}}></script>
+    <script type="application/javascript" src="{{asset('js/main.js')}}"></script>
 </body>
 
 </html>
