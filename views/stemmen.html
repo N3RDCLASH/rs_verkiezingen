@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link rel="stylesheet" href="../lib/materialize/css/materialize.min.css">
+    <link rel="stylesheet" href="../lib/css/main.css">
+</head>
+
+<body>
+    <nav> <a href="#" data-target="slide-out" class="sidenav-trigger"><i class="material-icons">menu</i></a>
+        <div class="nav-wrapper">
+            <ul id="nav-mobile" class="right hide-on-med-and-down">
+                <li>
+                    <a class=' ' href='#' data-target='dropdown1' href="#">
+                        <i class="material-icons black-text">notifications</i>
+                    </a>
+                    <!-- <ul id='dropdown1' class='dropdown-content'>
+                        <li><a href="#!">one</a></li>
+                        <li><a href="#!">two</a></li>
+                    </ul> -->
+
+                </li>
+                <li>
+                    <a href="#" class="user-dropdown">
+                        <img class='user-dropdown-circle' src="https://i.imgur.com/zsXULp7.jpg" alt="">
+                        <span class="user-dropdown-text">
+                            Joel Naarendorp
+                            <i class="material-icons">expand_more</i>
+                        </span>
+                    </a>
+                    <ul id='dropdown2' class='user-dropdown-content'>
+                        <li><a href="./gegevens.html" id="huidige_gebruiker_naam">
+                                <i class="material-icons left">person</i>Mijn Account</a></li>
+                        <li><a onclick=" " href="login.html">
+                                <i class="material-icons left">exit_to_app</i>
+                                Logout</a></li>
+                    </ul>
+                </li>
+            </ul>
+        </div>
+    </nav>
+
+    <div class="sidebar">
+        <ul id="slide-out" class="sidenav sidenav-fixed">
+            <nav-block>
+                <li>
+                    <i class="material-icons left">
+                        dashboard
+                    </i>
+                    <a href="dashboard.html">Dashboard</a>
+                </li>
+                <li class="active">
+                    <i class="material-icons left">
+                        how_to_vote
+                    </i>
+                    <a href="stemmen.html">Stemmen</a>
+                </li>
+            </nav-block>
+    </div>
+    <div class="main-content">
+        <div class="row">
+            <div class="col m12 s12">
+                Filter tools here
+            </div>
+        </div>
+        <div class="row">
+            <div class="col m6 s6">
+                <div class="card white kandidaat">
+                    <div class="card-content ">
+                        <div class="kandidaat-info">
+
+                            <div class="">
+                                <img class="kandidaat-circle" src="https://i.imgur.com/zsXULp7.jpg" alt="">
+
+                            </div>
+                            <div class="">
+                                <span class="card-title">Chandrikapersad Santohki</span>
+                                <p>VHP</p>
+                            </div>
+                            <div class="">
+                                <p>
+                                    <label>
+                                        <input name="group1" class="with-gap" type="radio" />
+                                        <span class="red-text"></span>
+                                    </label>
+                                </p>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col m6 s6">
+                <div class="card white kandidaat">
+                    <div class="card-content ">
+                        <div class="kandidaat-info">
+
+                            <div class="">
+                                <img class="kandidaat-circle" src="https://i.imgur.com/zsXULp7.jpg" alt="">
+
+                            </div>
+                            <div class="">
+                                <span class="card-title">Chandrikapersad Santohki</span>
+                                <p>VHP</p>
+                            </div>
+                            <div class="">
+                                <p>
+                                    <label>
+                                        <input name="group1" class="with-gap" type="radio" />
+                                        <span class="red-text"></span>
+                                    </label>
+                                </p>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script type="application/javascript" src="../lib/materialize/js/materialize.min.js"></script>
+    <script defer type="application/javascript" src="../lib/js/main.js"></script>
+    <script defer type="application/javascript" src="../lib/js/stemmen.js">
+    </script>
+</body>
+
+</html>
