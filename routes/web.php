@@ -23,3 +23,10 @@ Route::get('/register',[PagesController::class,'register']);
 Route::get('/home',[PagesController::class,'home']);
 
 Route::get('/stemmen',[PagesController::class,'stemmen']);
+
+Route::get('/kandidaten',[PagesController::class,'kandidaten']);
+
+Route::get('/partijen',[PagesController::class,'partijen']);
+
+Route::get('/distrikten',[PagesController::class,'distrikten']);
+

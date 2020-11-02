@@ -40,23 +40,7 @@
         </div>
     </nav>
 
-    <div class="sidebar">
-        <ul id="slide-out" class="sidenav sidenav-fixed">
-            <nav-block>
-                <li class="<?php echo ((\Request::is('home')) ? "active" : ""); ?>">
-                    <i class="material-icons left">
-                        dashboard
-                    </i>
-                    <a href="home">Home</a>
-                </li>
-                <li class="<?php echo ((\Request::is('stemmen')) ? "active" : ""); ?>">
-                    <i class="material-icons left">
-                        how_to_vote
-                    </i>
-                    <a href="stemmen">Stemmen</a>
-                </li>
-            </nav-block>
-    </div>
+    @include('includes.sidebar')
     <div class="main-content">
         @yield('content')
     </div>

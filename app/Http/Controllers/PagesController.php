@@ -7,18 +7,33 @@ use Illuminate\Http\Request;
 class PagesController extends Controller
 {
     //
-    public function login(){
+    public function login()
+    {
         return view('pages.login');
     }
-    
-    public function register(){
+
+    public function register()
+    {
         return view('pages.register');
     }
-    public function home(){
+    public function home()
+    {
         return view('pages.home');
     }
-    public function stemmen(){
+    public function kandidaten()
+    {
+        return view('pages.kandidaten');
+    }
+    public function partijen()
+    {
+        return view('pages.partijen');
+    }
+    public function distrikten()
+    {
+        return view('pages.distrikten');
+    }
+    public function stemmen()
+    {
         return view('pages.stemmen');
     }
-    
 }
