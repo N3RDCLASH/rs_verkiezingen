@@ -47,7 +47,7 @@
                     <i class="material-icons left">
                         dashboard
                     </i>
-                    <a href="home">Dashboard</a>
+                    <a href="home">Home</a>
                 </li>
                 <li class="<?php echo ((\Request::is('stemmen')) ? "active" : ""); ?>">
                     <i class="material-icons left">
