@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\KandidatenController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\PagesController;
 
@@ -24,9 +25,9 @@ Route::get('/home',[PagesController::class,'home']);
 
 Route::get('/stemmen',[PagesController::class,'stemmen']);
 
-Route::get('/kandidaten',[PagesController::class,'kandidaten']);
-
 Route::get('/partijen',[PagesController::class,'partijen']);
 
-Route::get('/distrikten',[PagesController::class,'distrikten']);
+Route::get('/districten',[PagesController::class,'districten']);
+
+Route::resource('kandidaten',KandidatenController::class);
 

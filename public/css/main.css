@@ -91,7 +91,9 @@ body {
 .btn {
     border-radius: 0.4em;
 }
-
+i.edit{
+    cursor: pointer;
+}
 .kandidaat {
     cursor: pointer;
 }
@@ -267,7 +269,9 @@ body {
 form .row {
     margin-bottom: 0 !important;
 }
-
+.card-content>form {
+    padding: 0px 20px;
+  }
 .main-content {
     padding-left: 250px;
 }

@@ -28,9 +28,9 @@ class PagesController extends Controller
     {
         return view('pages.partijen');
     }
-    public function distrikten()
+    public function districten()
     {
-        return view('pages.distrikten');
+        return view('pages.districten');
     }
     public function stemmen()
     {

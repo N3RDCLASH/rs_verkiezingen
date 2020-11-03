@@ -51,12 +51,14 @@
                     <div id="persoonlijke_informatie">
                         <div class="row">
                             <div class="input-field col s6">
-                                <input placeholder="Voornaam" name="voornaam" id="voornaam" type="text"
+                                <input  name="voornaam" id="voornaam" type="text"
                                     class="validate rsv-input">
+                                    <label for="voornaam" class="rsv-input-label">Voornaam</label>
                             </div>
 
                             <div class="input-field col s6">
-                                <input placeholder="Naam" id="naam" name="naam" type="text" class="validate rsv-input">
+                                <input id="naam" name="naam" type="text" class="validate rsv-input">
+                                <label for="voornaam" class="rsv-input-label">Naam</label>
                             </div>
                         </div>
                         <div class="row">
@@ -90,8 +92,10 @@
                         </div>
                         <div class="row">
                             <div class="input-field col s12">
-                                <input placeholder="ID KaartNummer" id="id_kaart_nummer" type="text"
+                                <input Nummer" id="id_kaart_nummer" type="text"
                                     class="validate rsv-input">
+                                    <label for="voornaam" class="rsv-input-label">ID Nummer</label>
+
                             </div>
                             <div class="row">
                                 <button class="waves-effect waves-light btn col s6 right login-btn" type="submit"
