@@ -1,44 +1,58 @@
-
 <?php
-// get user role
-$user_role = "admin" //this is for testing purposes 
+// user role logic here...
+$user_role = "admin"; //this is for testing purposes 
 
 ?>
-<div class="sidebar">
+<div class="sidebar col">
     <ul id="slide-out" class="sidenav sidenav-fixed">
+            <div class="sidebar_logo_container">
+                <h5 class="">Verkiezingen</h5>
+               
+                   <i  id="sidebar_toggle" class="material-icons">menu</i>
+              
+            </div>
         <nav-block>
             <li class="<?php echo ((\Request::is('home')) ? "active" : ""); ?>">
-                <i class="material-icons left">
-                    dashboard
-                </i>
-                <a href="/home">Home</a>
+                <a href="/home">
+                    <i class="material-icons left">
+                        dashboard
+                    </i>
+                    <span>Home</span></a>
             </li>
             @if($user_role == 'user')
             <li class="<?php echo ((\Request::is('stemmen')) ? "active" : ""); ?>">
-                <i class="material-icons left">
-                    how_to_vote
-                </i>
-                <a href=/stemmen"">Stemmen</a>
+                <a href=/stemmen"">
+                    <i class="material-icons left">
+                        how_to_vote
+                    </i>
+                    <span>Stemmen</span>
+                </a>
             </li>
             @endif
             @if($user_role == 'admin')
             <li class="<?php echo ((\Request::is('kandidaten')) ? "active" : ""); ?>">
-                <i class="material-icons left">
-                    person
-                </i>
-                <a href="/kandidaten">Kandidaten</a>
+                <a href="/kandidaten">
+                    <i class="material-icons left">
+                        face
+                    </i>
+                    <span>Kandidaten</span>
+                </a>
             </li>
-      <li class="<?php echo ((\Request::is('partijen')) ? "active" : ""); ?>">
-                <i class="material-icons left">
-                    group
-                </i>
-                <a href="/partijen">Partijen</a>
-            </li>      <li class="<?php echo ((\Request::is('districten')) ? "active" : ""); ?>">
-                <i class="material-icons left">
-                    location_city
-                </i>
-                <a href="/districten">Districten</a>
-            </li>      
+            <li class="<?php echo ((\Request::is('partijen')) ? "active" : ""); ?>">
+                <a href="/partijen">
+                    <i class="material-icons left">
+                        group
+                    </i>
+                    <span>Partijen</a>
+            </li>
+            <li class="<?php echo ((\Request::is('districten')) ? "active" : ""); ?>">
+                <a href="/districten">
+                    <i class="material-icons left">
+                        location_city
+                    </i>
+                    <span> Districten</span>
+                </a>
+            </li>
             @endif
         </nav-block>
 </div>

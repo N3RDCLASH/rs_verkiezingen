@@ -2,12 +2,10 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\District;
 use Illuminate\Http\Request;
-use App\Models\Kandidaat;
-use App\Models\Partij;
+Use App\Models\Partij;
 
-class KandidatenController extends Controller
+class PartijenController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -16,10 +14,8 @@ class KandidatenController extends Controller
      */
     public function index()
     {
-        //
-        $kandidaat = new Kandidaat;
-        $data = $kandidaat->getAllKandidaten();
-        return view('pages.kandidaten')->with('kandidaten', $data);
+        $partijen = Partij::all();
+        return $partijen;
     }
 
     /**
@@ -52,9 +48,6 @@ class KandidatenController extends Controller
     public function show($id)
     {
         //
-        $kandidaat = new Kandidaat;
-        $data = $kandidaat->getOneKandidaat($id);
-        return view('pages.kandidaat')->with('kandidaat', $data[0]);
     }
 
     /**
@@ -78,7 +71,6 @@ class KandidatenController extends Controller
     public function update(Request $request, $id)
     {
         //
-        // var_dump($_POST);
     }
 
     /**

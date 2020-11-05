@@ -1,5 +1,4 @@
 <?php
-use 
 ?>
 @extends('layouts.dashboard');
 @section('content')
@@ -12,7 +11,8 @@ use
                 <span class="card-subtitle">De informatie van de DNA kandidaat: {{$kandidaat->kandidaat_naam}} </span>
             </div>
             <div class="card-content row">
-                <form class="col s10 offset-s1" action="" id="KandidaatForm ">
+                <form class="col s10 offset-s1" action="" id="KandidaatForm" method="POST">
+                    @method('PUT')
                     <div class="row">
 
                         <div class="input-field col s6">
@@ -53,7 +53,7 @@ use
                                 name="action" id="persoonlijke_gegevens_btn">Weizig
                                 <i class="material-icons right">send</i>
                             </button>
-                        </div>
+                   </div>
             </div>
             </form>
         </div>

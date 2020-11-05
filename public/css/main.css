@@ -6,7 +6,7 @@
     --dark: #635F5F;
     --grey: #EBEBEB;
     --red: #b40a2d;
-    --yellow:#ecc81d ;
+    --yellow: #ecc81d;
     --green: #377e3f;
     --light-green: #8ad593;
 }
@@ -91,9 +91,11 @@ body {
 .btn {
     border-radius: 0.4em;
 }
-i.edit{
+
+i.edit {
     cursor: pointer;
 }
+
 .kandidaat {
     cursor: pointer;
 }
@@ -269,18 +271,27 @@ i.edit{
 form .row {
     margin-bottom: 0 !important;
 }
+
 .card-content>form {
     padding: 0px 20px;
-  }
+}
+
 .main-content {
     padding-left: 250px;
+    transition: all 0.1s ease;
+}
+
+.main-content.half {
+    padding-left: 70px!important;
 }
 
 .login-btn {
-    height: 3.4em;
-    background-color: var(--primary);
+    height: 3.4em!important;
+    background-color: var(--red)!important;
     font-family: 'Montserrat', sans-serif;
 }
+
+/* Sidebar */
 
 nav {
     background-color: #EBEBEB !important;
@@ -294,10 +305,6 @@ nav ul a {
     height: 64px !important;
     border-radius: 50% !important;
     font-family: 'Montserrat', sans-serif;
-}
-
-.sidenav li>a:hover {
-    background-color: transparent;
 }
 
 nav-block {
@@ -322,15 +329,68 @@ nav-block li:hover {
 
 nav-block li a {
     /* color: white !important; */
+    display: flex!important;
+    align-items: center;
     height: 35px !important;
     line-height: 35px !important;
     text-align: left;
+    padding: 1.4em 0!important;
 }
 
 nav-block li i.material-icons {
     /* color: white; */
     float: left;
-    padding: 5px 10px;
+    /* padding: 5px 10px; */
+}
+
+#sidebar_toggle {
+    cursor: pointer;
+}
+
+.sidebar_logo {}
+
+.sidebar_logo_container {
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+}
+
+.sidenav {
+    transition: all 0.1s ease;
+}
+
+.sidenav.half {
+    width: 70px!important;
+    transition: all 0.1s ease;
+}
+
+.sidenav>h5 {
+    margin: 10px !important;
+}
+
+.sidenav li>a:hover {
+    background-color: transparent;
+}
+
+.sidenav.half>.sidebar_logo_container>h5 {
+    display: none;
+}
+
+.sidenav.half:hover>.sidebar_logo_container>h5 {
+    display: block;
+}
+
+.sidenav.half>.sidebar_logo_container>i {
+    margin-top: 20px;
+}
+
+.sidenav.half:hover>.sidebar_logo_container>i {
+    margin-top: 0px;
+}
+
+.sidenav.half:hover {
+    width: 250px!important;
+    transition: all 0.1s;
 }
 
 .user-dropdown {
