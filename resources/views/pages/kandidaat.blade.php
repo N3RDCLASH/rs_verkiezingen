@@ -1,13 +1,13 @@
 <?php
 ?>
-@extends('layouts.dashboard');
+@extends('layouts.dashboard')
 @section('content')
 @include('includes.breadcrumbs')
-<div class="row">
+ <div class="row">
     <div class="col m8 offset-m2 s12">
         <div class="card white">
             <div class="card-header-floating z-depth-1">
-                <span class="card-title">Kandidaat</span>
+                <span class="card-title">Kandidaat Wijzigen</span>
                 <span class="card-subtitle">De informatie van de DNA kandidaat: {{$kandidaat->kandidaat_naam}} </span>
             </div>
             <div class="card-content row">
@@ -27,13 +27,13 @@
                             <label for="voornaam" class="rsv-input-label">Naam</label>
                         </div>
                     </div>
-                    {{-- <?php var_dump( explode(" ",$kandidaat->kandidaat_naam));?> --}}
                     <div class="row">
                         <div class="input-field col s12">
-                            <select class="" name="partij" id="partj">
+                            <select class="" name="partij" id="partij">
                                 <option value="" disabled selected>Selecteer de politieke partij</option>
-                                <option value="1">ABOP</option>
-                                <option value="2">VHP</option>
+                                @foreach ($partijen as $partij)
+                            <option value="{{$partij->partij_id}}">{{$partij->partij_afkorting}}</option>
+                                @endforeach
                             </select>
                         </div>
 
@@ -50,7 +50,7 @@
         
                         <div class="row">
                             <button class="waves-effect waves-light btn col s4 right login-btn" type="submit"
-                                name="action" id="persoonlijke_gegevens_btn">Weizig
+                                name="action" id="persoonlijke_gegevens_btn">Wijzig
                                 <i class="material-icons right">send</i>
                             </button>
                    </div>
@@ -59,5 +59,13 @@
         </div>
     </div>
 </div>
-</div>
+</div> 
+<?php
+echo "
+<script defer type='module'>
+    selectType({type:$kandidaat->partij},document.getElementById('partij'))
+    selectType({type:$kandidaat->district},document.getElementById('district'))
+</script>"
+?>
 @endsection
+

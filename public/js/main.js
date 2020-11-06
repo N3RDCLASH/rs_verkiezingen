@@ -22,11 +22,12 @@ document.addEventListener('DOMContentLoaded', () => {
 
     if (sidebar) {
         sidebar_toggle.addEventListener('click', () => {
-            console.log('test1')
             if (!sidebar.classList.contains('half')) {
+                console.log('test1')
                 sidebar.classList.add('half')
                 main.classList.add('half')
-            } else {
+            } else if (sidebar.classList.contains('half')) {
+                console.log('test2')
                 sidebar.classList.remove('half')
                 main.classList.remove('half')
             }
@@ -36,6 +37,21 @@ document.addEventListener('DOMContentLoaded', () => {
 
 
 })
+
+function selectType(data, element) {
+    typeValue = [...element.options].map(el => el.value)
+    element.options[typeValue.findIndex(id => id == data.type)].setAttribute('selected', true)
+    element.options[typeValue.findIndex(id => id == data.type)].classList.add('white-text')
+}
+
+
+function refreshSelect(el) {
+    let instance = M.FormSelect.getInstance(el)
+    instance.destroy()
+    el.classList.add('white-text')
+    M.FormSelect.init(el)
+    document.getElementsByClassName("select-dropdown dropdown-trigger")[0].classList.add("rsv-input")
+}
 
 
 

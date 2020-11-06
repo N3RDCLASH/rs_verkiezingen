@@ -76,3 +76,45 @@ if (document.getElementById('barChart') && document.getElementById('pieChart')) 
         }
     });
 }
+
+
+// Map 
+
+mapboxgl.accessToken = 'pk.eyJ1IjoibjNyZGNsYXNoIiwiYSI6ImNrOTY2dTMwaTBmMDgzZ3E5M3Rnc2l1dWsifQ.ZRceag02-VH3ggc59oh4zw';
+var map = new mapboxgl.Map({
+    container: 'map',
+    style: 'mapbox://styles/mapbox/light-v10'
+});
+map.on('load', function () {
+
+    // Add source for admin-1 Boundaries
+    map.addSource('admin-1', {
+        type: 'vector',
+        url: 'mapbox://mapbox.boundaries-adm1-v3'
+    });
+
+    var worldviewFilter = [
+        "any",
+        ["==", "all", ["get", "suriname"]],
+        // ["in", "US", ["get", "surina"]]
+    ];
+
+    // Add a layer with boundary polygons
+    map.addLayer(
+        {
+            id: 'admin-1-fill',
+            type: 'fill',
+            source: 'admin-1',
+            'source-layer': 'boundaries_admin_1',
+            filter: worldviewFilter,
+            paint: {
+                'fill-color': '#CCCCCC'
+            }
+        },
+        // This final argument indicates that we want to add the Boundaries layer
+        // before the `waterway-label` layer that is in the map from the Mapbox
+        // Light style. This ensures the admin polygons will be rendered on top of
+        // the
+        'waterway-label'
+    );
+});

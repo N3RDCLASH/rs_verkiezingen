@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Models\Kandidaat;
 
 class PagesController extends Controller
 {
@@ -18,7 +19,8 @@ class PagesController extends Controller
     }
     public function home()
     {
-        return view('pages.home');
+        $kandidaten = new Kandidaat;
+        return view('pages.home')->with(['kandidaten' => $kandidaten->getAllKandidaten()]);
     }
     public function kandidaten()
     {

@@ -6,7 +6,7 @@
     --dark: #635F5F;
     --grey: #EBEBEB;
     --red: #b40a2d;
-    --yellow: #ecc81d;
+    --yellow: #ffd50b;
     --green: #377e3f;
     --light-green: #8ad593;
 }
@@ -149,6 +149,11 @@ i.edit {
 
 .card-subtitle {
     display: block;
+}
+
+.collection-item:hover {
+    background-color: #f4f1f1;
+    cursor: pointer;
 }
 
 .form-step-container>.visible {
@@ -321,6 +326,18 @@ nav-block li {
     height: 41px;
     padding-left: 20px;
     align-content: center;
+}
+
+nav-block li.active {
+    background-color: var(--light-green)!important;
+}
+
+nav-block li.active a span {
+    color: white!important;
+}
+
+nav-block li.active a i {
+    color: white!important;
 }
 
 nav-block li:hover {

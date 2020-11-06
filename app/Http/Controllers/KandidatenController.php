@@ -53,8 +53,11 @@ class KandidatenController extends Controller
     {
         //
         $kandidaat = new Kandidaat;
-        $data = $kandidaat->getOneKandidaat($id);
-        return view('pages.kandidaat')->with('kandidaat', $data[0]);
+        $kandidaat_data = $kandidaat->getOneKandidaat($id)[0];
+        $partijen = Partij::All();
+        $districten = Partij::All();
+        // return ['kandidaat' => $kandidaat_data[0]->kandidaat_naam];
+        return view('pages.kandidaat')->with(['kandidaat' => $kandidaat_data, 'partijen' => $partijen, 'districten' => $partijen]);
     }
 
     /**

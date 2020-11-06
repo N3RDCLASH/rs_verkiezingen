@@ -2,7 +2,7 @@
 
 @section('content')
 <div class="row">
-    <div class="col m8 s12">
+    <div class="col m8 offset-m2 s12">
         <div class="card white">
             <div class="card-header-floating z-depth-1">
                 <span class="card-title">Kandidaten</span>
