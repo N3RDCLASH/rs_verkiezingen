@@ -104,3 +104,19 @@
 <script defer type="application/javascript" src="{{asset('js/dashboard.js')}}"></script>
 <script src='https://api.mapbox.com/mapbox-gl-js/v1.12.0/mapbox-gl.js'></script>
 @endsection
+
+<?php
+
+$DISTRICTEN = [
+    "Nickerie",
+    "Coronie",
+    "Saramacca",
+    "Wanica",
+    "Paramaribo",
+    "Commewijne",
+    "Marowijne",
+    "Sipaliwini",
+    "Brokopondo",
+    "Para"
+]
+?>

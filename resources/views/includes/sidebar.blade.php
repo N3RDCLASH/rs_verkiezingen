@@ -8,7 +8,11 @@ $user_role = "admin"; //this is for testing purposes
             <div class="sidebar_logo_container">
                 <h5 class="">Verkiezingen</h5>
                
-                   <i  id="sidebar_toggle" class="material-icons">menu</i>
+                <button class="hamburger hamburger--collapse" id="sidebar_toggle" type="button">
+                    <span class="hamburger-box">
+                      <span class="hamburger-inner"></span>
+                    </span>
+                  </button>
               
             </div>
         <nav-block>
@@ -21,7 +25,7 @@ $user_role = "admin"; //this is for testing purposes
             </li>
             @if($user_role == 'user')
             <li class="<?php echo ((\Request::is('stemmen')) ? "active" : ""); ?>">
-                <a href=/stemmen"">
+                <a href="/stemmen">
                     <i class="material-icons left">
                         how_to_vote
                     </i>

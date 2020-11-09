@@ -8,6 +8,7 @@
     <title>{{'Verkiezingen | '. UCfirst(explode('/',$_SERVER['REQUEST_URI'])[1]) }}</title>
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <link rel="stylesheet" href="{{asset('css/materialize.min.css')}}">
+    <link rel="stylesheet" href="{{asset('/css/hamburger.css')}}">
     <link rel="stylesheet" href="{{asset('/css/main.css')}}">
     @yield('head')
 </head>

@@ -26,10 +26,13 @@ document.addEventListener('DOMContentLoaded', () => {
                 console.log('test1')
                 sidebar.classList.add('half')
                 main.classList.add('half')
+                sidebar_toggle.classList.add('is-active')
+
             } else if (sidebar.classList.contains('half')) {
                 console.log('test2')
                 sidebar.classList.remove('half')
                 main.classList.remove('half')
+                sidebar_toggle.classList.remove('is-active')
             }
 
         })
