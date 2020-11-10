@@ -81,7 +81,7 @@
                             </div>
 
                         </div>
-                        <div class="row">
+                        <!-- <div class="row">
                             <div class="input-field col s12">
                                 <select class="" name="resort" id="resort">
                                     <option value="" disabled selected>Selecteer uw Resort</option>
@@ -89,7 +89,7 @@
                                     <option value="2">Wanica</option>
                                 </select>
                             </div>
-                        </div>
+                        </div> -->
                         <div class="row">
                             <div class="input-field col s12">
                                 <input Nummer" id="id_kaart_nummer" type="text"
