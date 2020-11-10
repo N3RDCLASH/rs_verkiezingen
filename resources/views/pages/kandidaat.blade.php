@@ -1,4 +1,6 @@
 <?php
+use App\Http\Controllers\KandidatenController;
+$url = action([KandidatenController::class,'update'],[$kandidaat]);
 ?>
 @extends('layouts.dashboard')
 @section('content')
@@ -11,7 +13,8 @@
                 <span class="card-subtitle">De informatie van de DNA kandidaat: <b>{{$kandidaat->kandidaat_naam}}</b> </span>
             </div>
             <div class="card-content row">
-                <form class="col s10 offset-s1" action="" id="KandidaatForm" method="POST">
+            <form class="col s10 offset-s1" action="{{$url}}" id="KandidaatForm" method="POST">
+                    @csrf
                     @method('PUT')
                     <div class="row">
 

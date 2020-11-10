@@ -11,6 +11,7 @@ class Kandidaat extends Model
     protected $table = "kandidaten";
     protected $primaryKey = 'kandidaat_id';
     protected $fillable = ['kandidaat_naam', 'partij', 'district'];
+    public $timestamps = false;
 
     public function getAllKandidaten()
     {
@@ -27,14 +28,17 @@ class Kandidaat extends Model
 
     public function getOneKandidaat($id)
     {
-        $data = $this::addSelect([
-            // 'partij' => Partij::select('partij_naam')
-            //     ->whereColumn('partij_id', 'kandidaten.partij')
-            //     ->limit(1),
-            // 'district' => District::select('district_naam')
-            //     ->whereColumn('district_id', 'kandidaten.district')
-            //     ->limit(1)
-        ])->where('kandidaat_id', $id)->limit(1)->get();
+        $data = $this::addSelect([])->where('kandidaat_id', $id)->limit(1)->get();
         return $data;
+    }
+    public function updateKandidaat($id, $data)
+    {
+        $this::where('kandidaat_id', $id)->update(
+            [
+                'kandidaat_naam' => $data['voornaam'] . ' ' . $data['naam'],
+                'partij' => $data['partij'],
+                'district' => $data['district']
+            ]
+        );
     }
 }

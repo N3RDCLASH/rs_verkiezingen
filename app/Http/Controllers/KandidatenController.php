@@ -80,8 +80,15 @@ class KandidatenController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
-        // var_dump($_POST);
+        //sanitize data
+        $data = [];
+        foreach ($_POST as $key => $value) {;
+            $data[$key] = htmlentities($value, ENT_QUOTES, 'UTF-8', false);
+        }
+
+        $kandidaat = new Kandidaat;
+        $kandidaat->updateKandidaat($id, $data);
+        return $this->show($id);
     }
 
     /**
