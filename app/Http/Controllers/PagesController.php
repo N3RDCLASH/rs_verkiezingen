@@ -39,7 +39,7 @@ class PagesController extends Controller
     }
     public function stemmen()
     {
-        
+
         $kandidaten = new Kandidaat;
         return view('pages.stemmen')->with(['kandidaat' => $kandidaten->getAllKandidaten()]);
     }

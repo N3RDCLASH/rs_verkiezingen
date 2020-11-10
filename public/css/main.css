@@ -381,7 +381,7 @@ nav-block li i.material-icons {
     transition: all 0.1s ease;
 }
 
-.sidenav>h5 {
+.sidebar_logo_container>h5 {
     margin: 10px !important;
 }
 

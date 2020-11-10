@@ -73,6 +73,7 @@
             </div>
             <div class="card-content ">
                 <ul class="collection">
+                    @if ($kandidaten!== '')
                     @foreach ($kandidaten as $kandidaat)
                         
                     <li class="collection-item avatar">
@@ -83,7 +84,11 @@
                         </p>
                         <a href="#!" class="secondary-content"><i class="material-icons">grade</i></a>
                     </li>
-                    @endforeach
+                    @endforeach 
+                        
+                    @else
+                        <span>Geen kandidaten beschikbaar.</span>
+                    @endif
                 </ul>
             </div>
         </div>

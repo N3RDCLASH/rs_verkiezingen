@@ -21,7 +21,7 @@
                     </thead>
 
                     <tbody>
-                        @if(count($kandidaten)>0)
+                        @if($kandidaten!=="")
                         @foreach($kandidaten as $kandidaat)
                     <tr data-id="">
                             <td>{{$kandidaat->kandidaat_naam}}</td>
@@ -34,7 +34,6 @@
                         @endforeach
                         @else
                         <tr><td>
-
                             Geen kandidaten beschikbaar
                         </td>
                         <td></td>
