@@ -8,7 +8,7 @@
         <div class="card white">
             <div class="card-header-floating z-depth-1">
                 <span class="card-title">Kandidaat Wijzigen</span>
-                <span class="card-subtitle">De informatie van de DNA kandidaat: {{$kandidaat->kandidaat_naam}} </span>
+                <span class="card-subtitle">De informatie van de DNA kandidaat: <b>{{$kandidaat->kandidaat_naam}}</b> </span>
             </div>
             <div class="card-content row">
                 <form class="col s10 offset-s1" action="" id="KandidaatForm" method="POST">

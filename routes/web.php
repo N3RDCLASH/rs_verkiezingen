@@ -3,6 +3,7 @@
 use App\Http\Controllers\KandidatenController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\PagesController;
+use App\Http\Controllers\PartijenController;
 
 /*
 |--------------------------------------------------------------------------
@@ -17,17 +18,16 @@ use App\Http\Controllers\PagesController;
 
 Route::redirect('/', '/login');
 
-Route::get('/login',[PagesController::class,'login']);
+Route::get('/login', [PagesController::class, 'login']);
 
-Route::get('/register',[PagesController::class,'register']);
+Route::get('/register', [PagesController::class, 'register']);
 
-Route::get('/home',[PagesController::class,'home']);
+Route::get('/home', [PagesController::class, 'home']);
 
-Route::get('/stemmen',[PagesController::class,'stemmen']);
+Route::get('/stemmen', [PagesController::class, 'stemmen']);
 
-Route::get('/partijen',[PagesController::class,'partijen']);
+Route::resource('partijen', PartijenController::class);
 
-Route::get('/districten',[PagesController::class,'districten']);
+Route::get('/districten', [PagesController::class, 'districten']);
 
-Route::resource('kandidaten',KandidatenController::class);
-
+Route::resource('kandidaten', KandidatenController::class);

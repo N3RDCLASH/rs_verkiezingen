@@ -3,7 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-Use App\Models\Partij;
+use App\Models\Partij;
 
 class PartijenController extends Controller
 {
@@ -14,8 +14,7 @@ class PartijenController extends Controller
      */
     public function index()
     {
-        $partijen = Partij::all();
-        return $partijen;
+        return view('pages.partijen')->with(['partijen' => Partij::all()]);
     }
 
     /**
@@ -48,6 +47,7 @@ class PartijenController extends Controller
     public function show($id)
     {
         //
+        return view('pages.partij')->with('partij', Partij::find($id));
     }
 
     /**
