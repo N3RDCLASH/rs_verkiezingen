@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Kandidaat;
+use App\Models\Partij;
+use App\Models\District;
 
 class PagesController extends Controller
 {
@@ -20,6 +22,7 @@ class PagesController extends Controller
     public function home()
     {
         $kandidaten = new Kandidaat;
+        $partijen = Partij::all();
         return view('pages.home')->with(['kandidaten' => $kandidaten->getAllKandidaten()]);
     }
     public function kandidaten()
@@ -36,6 +39,8 @@ class PagesController extends Controller
     }
     public function stemmen()
     {
-        return view('pages.stemmen');
+        
+        $kandidaten = new Kandidaat;
+        return view('pages.stemmen')->with(['kandidaat' => $kandidaten->getAllKandidaten()]);
     }
 }
