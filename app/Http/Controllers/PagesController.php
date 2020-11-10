@@ -31,7 +31,7 @@ class PagesController extends Controller
     }
     public function partijen()
     {
-        return view('pages.partijen');
+        return view('pages.partijen')->with(['partijen' => Partij::all()]);
     }
     public function districten()
     {
