@@ -47,4 +47,6 @@
         </div>
     </div>
 </div>
+@include('includes.fab')
+@include('includes.createKandidaatForm')
 @endsection

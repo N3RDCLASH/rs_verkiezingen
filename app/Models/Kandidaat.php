@@ -41,4 +41,15 @@ class Kandidaat extends Model
             ]
         );
     }
+
+    public function createKandidaat($data)
+    {
+        $this::create(
+            [
+                'kandidaat_naam' => $data['voornaam'] . ' ' . $data['naam'],
+                'partij' => $data['partij'],
+                'district' => $data['district']
+            ]
+        );
+    }
 }
