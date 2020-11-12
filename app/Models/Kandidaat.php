@@ -52,4 +52,8 @@ class Kandidaat extends Model
             ]
         );
     }
+    public function deleteKandidaat($id)
+    {
+        $this::where('kandidaat_id', $id)->delete();
+    }
 }

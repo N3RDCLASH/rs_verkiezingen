@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="en">
 
@@ -47,7 +46,7 @@
     <div class="main-content">
         @yield('content')
     </div>
-
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@10"></script>
     <script type="application/javascript" src="{{asset('js/node_modules/chart.js/dist/Chart.min.js')}}"></script>
     <script type="application/javascript" src="{{asset('js/materialize.min.js')}}"></script>
     <script type="application/javascript" src="{{asset('js/main.js')}}"></script>

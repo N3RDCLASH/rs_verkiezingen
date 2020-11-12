@@ -48,7 +48,7 @@ class KandidatenController extends Controller
 
         $kandidaat = new Kandidaat;
         $kandidaat->createKandidaat($data);
-        return $this->index();
+        return $this->index()->with(['msg' => 'user_created']);
     }
 
     /**
@@ -90,7 +90,7 @@ class KandidatenController extends Controller
     {
         //sanitize data
         $data = [];
-        foreach ($_POST as $key => $value) {;
+        foreach ($_POST as $key => $value) {
             $data[$key] = htmlentities($value, ENT_QUOTES, 'UTF-8', false);
         }
 
@@ -107,6 +107,8 @@ class KandidatenController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $kandidaat = new Kandidaat;
+        $kandidaat->deleteKandidaat($id);
+        return $this->index();
     }
 }
