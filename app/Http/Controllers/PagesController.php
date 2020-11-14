@@ -23,7 +23,8 @@ class PagesController extends Controller
     {
         $kandidaten = new Kandidaat;
         $partijen = Partij::all();
-        return view('pages.home')->with(['kandidaten' => $kandidaten->getAllKandidaten()]);
+        $districten = District::all();
+        return view('pages.home')->with(['kandidaten' => $kandidaten->getAllKandidaten(), 'districten' => $districten]);
     }
     public function kandidaten()
     {

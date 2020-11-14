@@ -28,8 +28,11 @@ class Kandidaat extends Model
 
     public function getOneKandidaat($id)
     {
-        $data = $this::addSelect([])->where('kandidaat_id', $id)->limit(1)->get();
-        return $data;
+        return $this::where('kandidaat_id', $id)->limit(1)->get();
+    }
+    public function getKandidaatByDistrict($district_id)
+    {
+        return $this::select(['kandidaat_naam', 'aantal_stemmen'])->where('district', $district_id)->get();
     }
     public function updateKandidaat($id, $data)
     {
