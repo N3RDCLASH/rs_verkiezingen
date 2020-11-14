@@ -56,18 +56,45 @@ function refreshSelect(el) {
     document.getElementsByClassName("select-dropdown dropdown-trigger")[0].classList.add("rsv-input")
 }
 
+// Deletion Logic 
+const typeObject = objectDeleteType()
 
-function getCookie(name) {
-    if (!document.cookie) {
-        return null;
+function objectDeleteType() {
+    let value
+    switch (window.location.pathname) {
+        case '/partijen':
+            value = "Partij"
+            break;
+        case '/kandidaten':
+            value = "Kandidaat"
+            break;
+        case '/districten':
+            value = "District"
+            break;
+
+        default:
+            break;
     }
-
-    const xsrfCookies = document.cookie.split(';')
-        .map(c => c.trim())
-        .filter(c => c.startsWith(name + '='));
-
-    if (xsrfCookies.length === 0) {
-        return null;
-    }
-    return decodeURIComponent(xsrfCookies[0].split('=')[1]);
+    return value;
 }
+
+function confirmDelete(id) {
+    form = document.querySelector(`#delete_form_${id}`)
+    Swal.fire({
+        title: 'Bent U zeker dat U deze kandidaat wilt verwijderen',
+        showDenyButton: true,
+        confirmButtonText: `Ja`,
+        denyButtonText: `Nee`,
+        html: `Insert ${typeObject} info here...`
+    }).then((result) => {
+        /* Read more about isConfirmed, isDenied below */
+        if (result.isConfirmed) {
+            Swal.fire(`${typeObject} verwijderd!`, '', 'success')
+            form.submit();
+        } else if (result.isDenied) {
+            Swal.fire(`${typeObject} niet verwijderd`, '', 'error')
+        }
+    })
+}
+
+

@@ -48,7 +48,7 @@ class KandidatenController extends Controller
 
         $kandidaat = new Kandidaat;
         $kandidaat->createKandidaat($data);
-        return $this->index()->with(['msg' => 'user_created']);
+        return redirect()->action([KandidatenController::class, 'index']);
     }
 
     /**
@@ -96,7 +96,7 @@ class KandidatenController extends Controller
 
         $kandidaat = new Kandidaat;
         $kandidaat->updateKandidaat($id, $data);
-        return $this->show($id);
+        return redirect()->action([KandidatenController::class, 'show'], ['id' => $id]);
     }
 
     /**
@@ -109,6 +109,6 @@ class KandidatenController extends Controller
     {
         $kandidaat = new Kandidaat;
         $kandidaat->deleteKandidaat($id);
-        return $this->index();
+        return redirect()->action([KandidatenController::class, 'index']);
     }
 }
