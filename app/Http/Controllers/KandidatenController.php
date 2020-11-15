@@ -96,7 +96,7 @@ class KandidatenController extends Controller
 
         $kandidaat = new Kandidaat;
         $kandidaat->updateKandidaat($id, $data);
-        return redirect()->action([KandidatenController::class, 'show'], ['id' => $id]);
+        return redirect()->action([KandidatenController::class, 'show'], [$id]);
     }
 
     /**

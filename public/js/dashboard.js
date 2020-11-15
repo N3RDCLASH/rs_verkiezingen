@@ -3,58 +3,16 @@ const district_toggle = document.querySelector('#district_toggle')
 let kandidaat = []
 let aantal_stemmen = []
 
+const drawBarChart = (labels, values) => {
 
-if (document.getElementById('barChart') && document.getElementById('pieChart')) {
-    // Bar Chart 
-    let drawBarChart = (x, y) => {
-
-        var ctx = document.getElementById('barChart').getContext('2d');
-        var myChart = new Chart(ctx, {
-            type: 'bar',
-            data: {
-                labels: x,
-                datasets: [{
-                    label: '# of Votes',
-                    data: y,
-                    backgroundColor: [
-                        'rgba(255, 99, 132, 0.2)',
-                        'rgba(54, 162, 235, 0.2)',
-                        'rgba(255, 206, 86, 0.2)',
-                        'rgba(75, 192, 192, 0.2)',
-                        'rgba(153, 102, 255, 0.2)',
-                        'rgba(255, 159, 64, 0.2)'
-                    ],
-                    borderColor: [
-                        'rgba(255, 99, 132, 1)',
-                        'rgba(54, 162, 235, 1)',
-                        'rgba(255, 206, 86, 1)',
-                        'rgba(75, 192, 192, 1)',
-                        'rgba(153, 102, 255, 1)',
-                        'rgba(255, 159, 64, 1)'
-                    ],
-                    borderWidth: 1
-                }]
-            },
-            options: {
-                scales: {
-                    yAxes: [{
-                        ticks: {
-                            beginAtZero: true
-                        }
-                    }]
-                }
-            }
-        });
-    }
-    // Bar Chart 
-    var ctx = document.getElementById('pieChart').getContext('2d');
+    var ctx = document.getElementById('barChart').getContext('2d');
     var myChart = new Chart(ctx, {
-        type: 'pie',
+        type: 'bar',
         data: {
-            labels: ['Red', 'Blue', 'Yellow', 'Green', 'Purple', 'Orange'],
+            labels: labels,
             datasets: [{
                 label: '# of Votes',
-                data: [12, 19, 3, 5, 2, 3],
+                data: values,
                 backgroundColor: [
                     'rgba(255, 99, 132, 0.2)',
                     'rgba(54, 162, 235, 0.2)',
@@ -84,19 +42,77 @@ if (document.getElementById('barChart') && document.getElementById('pieChart')) 
             }
         }
     });
-
-    // Toggle chart Data by district
-    district_toggle.addEventListener('change', async () => {
-        // console.log(district_toggle.value)
-        let data = await fetch(`${window.location.origin}/api/statistieken/kandidaten/district/${district_toggle.value}}`).then(res => res.json())
-        kandidaat = data.map(x => x.kandidaat_naam)
-        aantal_stemmen = data.map(x => x.aantal_stemmen)
-
-        drawBarChart(kandidaat, aantal_stemmen)
-
-    })
 }
 
+const drawPieChart = (labels, values) => {
+    var ctx = document.getElementById('pieChart').getContext('2d');
+    var myChart = new Chart(ctx, {
+        type: 'pie',
+        data: {
+            labels: labels,
+            datasets: [{
+                label: '# of Votes',
+                data: values,
+                backgroundColor: [
+                    'rgba(255, 99, 132, 0.2)',
+                    'rgba(54, 162, 235, 0.2)',
+                    'rgba(255, 206, 86, 0.2)',
+                    'rgba(75, 192, 192, 0.2)',
+                    'rgba(153, 102, 255, 0.2)',
+                    'rgba(255, 159, 64, 0.2)'
+                ],
+                borderColor: [
+                    'rgba(255, 99, 132, 1)',
+                    'rgba(54, 162, 235, 1)',
+                    'rgba(255, 206, 86, 1)',
+                    'rgba(75, 192, 192, 1)',
+                    'rgba(153, 102, 255, 1)',
+                    'rgba(255, 159, 64, 1)'
+                ],
+                borderWidth: 1
+            }]
+        },
+        options: {
+            scales: {
+                yAxes: [{
+                    ticks: {
+                        beginAtZero: true
+                    }
+                }]
+            }
+        }
+    });
+}
+const toggleCharts =
+    async (id) => {
+        // console.log(district_toggle.value)
+        console.log(id)
+        await fetch(`${window.location.origin}/api/statistieken/kandidaten/district/${id}`).then(res => res.json()).then(
+            (data) => {
+                kandidaat = data.map(x => x.kandidaat_naam)
+                aantal_stemmen = data.map(x => x.aantal_stemmen)
+                console.log(JSON.stringify([kandidaat, aantal_stemmen]))
+                drawBarChart(kandidaat, aantal_stemmen)
+                drawPieChart(kandidaat, aantal_stemmen)
+            }
+        )
+
+    }
+district_toggle.addEventListener('change', () => toggleCharts(district_toggle.value))
+
+document.addEventListener('DOMContentLoaded', () => {
+    document.querySelectorAll('.select-wrapper li')[1].click()
+    console.log()
+})
+
+const selectKandidaat = (element) => {
+    console.log(element)
+    document.querySelector('.collection li.selected') ? document.querySelector('.collection li.selected').classList.remove('selected') :
+        null
+    element.classList.add('selected')
+
+}
+document.querySelectorAll('.collection li').forEach(li => li.addEventListener('click', () => selectKandidaat(li)))
 
 // Map 
 

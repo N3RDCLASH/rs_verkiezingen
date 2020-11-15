@@ -5,6 +5,7 @@ use App\Http\Controllers\KandidatenController;
     <div class="modal-content row">
         <form class="col s10 offset-s1" action="{{action([KandidatenController::class,'store'],[$kandidaat])}}"
             id="KandidaatForm" method="POST">
+            <h5>Kandidaat Registreren</h5>
             @csrf
             <div class="row">
 

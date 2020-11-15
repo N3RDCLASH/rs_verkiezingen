@@ -156,6 +156,10 @@ i.edit {
     cursor: pointer;
 }
 
+.collection-item.avatar.selected {
+    background-color: #F4F1F0!important;
+}
+
 .form-step-container>.visible {
     visibility: visible;
     opacity: 1;

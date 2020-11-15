@@ -41,6 +41,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
 })
 
+
 function selectType(data, element) {
     typeValue = [...element.options].map(el => el.value)
     element.options[typeValue.findIndex(id => id == data.type)].setAttribute('selected', true)
@@ -55,6 +56,8 @@ function refreshSelect(el) {
     M.FormSelect.init(el)
     document.getElementsByClassName("select-dropdown dropdown-trigger")[0].classList.add("rsv-input")
 }
+
+
 
 // Deletion Logic 
 const typeObject = objectDeleteType()
@@ -81,7 +84,7 @@ function objectDeleteType() {
 function confirmDelete(id) {
     form = document.querySelector(`#delete_form_${id}`)
     Swal.fire({
-        title: 'Bent U zeker dat U deze kandidaat wilt verwijderen',
+        title: `Bent U zeker dat U deze ${typeObject} wilt verwijderen`,
         showDenyButton: true,
         confirmButtonText: `Ja`,
         denyButtonText: `Nee`,
