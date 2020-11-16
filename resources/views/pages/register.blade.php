@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Registreren</title>
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <link rel="stylesheet" href="{{asset('css/materialize.min.css')}}">
     <link rel="stylesheet" href="{{asset('css/main.css')}}">
@@ -15,7 +15,8 @@
         <div class="col m6 s12 waves">
         </div>
         <div class=" col m6 s12" id="register-form-container">
-            <form action="" class="col s10 offset-s1" id="registratie_form">
+            <form  action="{{route("register")}}" class="col s10 offset-s1" id="registratie_form" method="post">
+                {{ csrf_field() }}
                 <h3 id="login-form-title" style="margin-bottom: 1em;">Registreren</h3>
                 <div class="row">
                     <div class="col s12">
@@ -50,15 +51,11 @@
                 <div class="form-step-container">
                     <div id="persoonlijke_informatie">
                         <div class="row">
-                            <div class="input-field col s6">
-                                <input  name="voornaam" id="voornaam" type="text"
-                                    class="validate rsv-input">
-                                    <label for="voornaam" class="rsv-input-label">Voornaam</label>
-                            </div>
+                           
 
-                            <div class="input-field col s6">
-                                <input id="naam" name="naam" type="text" class="validate rsv-input">
-                                <label for="voornaam" class="rsv-input-label">Naam</label>
+                            <div class="input-field col s12">
+                                <input id="naam" name="Gdatum" type="date" class="validate rsv-input">
+                                <label for="naam" class="rsv-input-label">Geboorte datum</label>
                             </div>
                         </div>
                         <div class="row">
@@ -81,7 +78,8 @@
                             </div>
 
                         </div>
-                        <!-- <div class="row">
+                    
+                       <!-- <div class="row">
                             <div class="input-field col s12">
                                 <select class="" name="resort" id="resort">
                                     <option value="" disabled selected>Selecteer uw Resort</option>
@@ -90,9 +88,11 @@
                                 </select>
                             </div>
                         </div> -->
+
+            
                         <div class="row">
                             <div class="input-field col s12">
-                                <input Nummer" id="id_kaart_nummer" type="text"
+                                <input Nummer id="id_kaart_nummer" name="id_nr" type="text"
                                     class="validate rsv-input">
                                     <label for="voornaam" class="rsv-input-label">ID Nummer</label>
 
@@ -101,12 +101,13 @@
                                 <button class="waves-effect waves-light btn col s6 right login-btn" type="submit"
                                     name="action" id="persoonlijke_gegevens_btn">Volgende
                                     <i class="material-icons right">send</i>
+                                   
                                 </button>
                             </div>
                         </div>
 
 
-                    </div>
+                    </div> 
 
 
                     <!-- Account Information -->
@@ -117,7 +118,7 @@
                                 <i class="material-icons rsv-input-icon primary-text">
                                     mail_outline
                                 </i>
-                                <input placeholder="Email" id="email" type="text" class="validate rsv-input with-icon">
+                                <input placeholder="Email" id="email" name="email" type="text" class="validate rsv-input with-icon">
                                 <!-- <label for="first_name rsv-input-label">First Name</label> -->
                             </div>
                         </div>
@@ -126,7 +127,7 @@
                                 <i class="material-icons rsv-input-icon primary-text">
                                     lock_outline
                                 </i>
-                                <input placeholder="Wachtwoord" id="password1" type="password"
+                                <input placeholder="Wachtwoord" id="password1" name="password1" type="password"
                                     class="validate rsv-input with-icon">
                             </div>
                         </div>
@@ -135,7 +136,7 @@
                                 <i class="material-icons rsv-input-icon primary-text">
                                     lock_outline
                                 </i>
-                                <input placeholder="Wachtwoord herhalen" id="password2" type="password"
+                                <input placeholder="Wachtwoord herhalen" id="password2" type="password" name="password2"
                                     class="validate rsv-input with-icon">
                             </div>
                         </div>
@@ -143,11 +144,13 @@
                             <button class="waves-effect waves-light btn col s6 right login-btn" type="submit"
                                 id="account_gegevens_btn" name="action">Voltooien
                                 <i class="material-icons right">send</i>
+                                
                             </button>
                         </div>
                     </div>
 
                 </div>
+                
 
             </form>
         </div>

@@ -12,7 +12,7 @@
 
 <body>
     <div class="row" id="login-container">
-        <div class="col m6 s12 waves" ">
+        <div class="col m6 s12 waves" >
 
         </div>
         <div class=" col m6 s12" id="login-form-container">
@@ -23,8 +23,13 @@
                         <i class="material-icons rsv-input-icon primary-text">
                             mail_outline
                         </i>
-                        <input placeholder="Email" id="email" type="text" class="validate rsv-input with-icon" required>
+                        <input placeholder="Email" i d="email" type="email" class= "validate rsv-input with-icon @error('email') is-invalid @enderror" name="email" value="{{ old('email') }}" required autocomplete="email" autofocus>  
                         <!-- <label for="first_name rsv-input-label">First Name</label> -->
+                        @error('email')
+                        <span class="invalid-feedback" role="alert">
+                            <strong>{{ $message }}</strong>
+                        </span>
+                    @enderror
                     </div>
                 </div>
                 <div class="row">
@@ -32,16 +37,20 @@
                         <i class="material-icons rsv-input-icon primary-text">
                             lock_outline
                         </i>
-                        <input placeholder="Wachtwoord" id="password" type="password"
-                            class="validate rsv-input with-icon" required>
+                        <input placeholder="Wachtwoord" id="password" type="password" class="validate rsv-input with-icon form-control @error('password') is-invalid @enderror" name="password" required autocomplete="current-password">
                         <!-- <label for="first_name rsv-input-label">First Name</label> -->
+                        @error('password')
+                                    <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $message }}</strong>
+                                    </span>
+                                @enderror
                     </div>
                 </div>
                 <span>
                     Nog niet geregistreerd?<a href="register"> Klik hier</a>
                 </span>
                 <div class="row">
-                    <button class="waves-effect waves-light btn col s6 right login-btn" type="submit"
+                    <button class="btn btn-primary waves-effect waves-light btn col s6 right login-btn" type="submit"
                         name="submit_persoonlijke_gegevens" id="submit_persoonlijke_gegevens">Log
                         In
                         <i class="material-icons right">send</i>
@@ -55,3 +64,4 @@
 </body>
 
 </html>
+

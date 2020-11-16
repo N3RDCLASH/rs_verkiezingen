@@ -15,10 +15,7 @@ class PagesController extends Controller
         return view('pages.login');
     }
 
-    public function register()
-    {
-        return view('pages.register');
-    }
+    
     public function home()
     {
         $kandidaten = new Kandidaat;
