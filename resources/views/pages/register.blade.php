@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>{{'Verkiezingen | '. UCfirst(explode('/',$_SERVER['REQUEST_URI'])[1]) }}</title>
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <link rel="stylesheet" href="{{asset('css/materialize.min.css')}}">
     <link rel="stylesheet" href="{{asset('css/main.css')}}">
@@ -50,77 +50,63 @@
                 <div class="form-step-container">
                     <div id="persoonlijke_informatie">
                         <div class="row">
-                            <div class="input-field col s6">
-                                <input  name="voornaam" id="voornaam" type="text"
-                                    class="validate rsv-input">
-                                    <label for="voornaam" class="rsv-input-label">Voornaam</label>
+                            <div class="input-field col s12">
+                                <input Nummer" id="id_kaart_nummer" pattern="([A-Z a-z]{2})([0-9]{6})" type="text"
+                                    class="validate rsv-input" required>
+                                <label for="voornaam" class="rsv-input-label">ID Nummer</label>
                             </div>
-
-                            <div class="input-field col s6">
-                                <input id="naam" name="naam" type="text" class="validate rsv-input">
-                                <label for="voornaam" class="rsv-input-label">Naam</label>
+                        </div>
+                        <div class="row">
+                            <div class="input-field col s12">
+                                <input type="text" class="datepicker rsv-input" required>
+                                <label for="voornaam" class="rsv-input-label">Geboortedatum</label>
                             </div>
                         </div>
                         <div class="row">
                             <div class="input-field col s12" name="geslacht">
-                                <select class="" name="geslacht">
+                                <select class="" name="geslacht" required>
                                     <option value="" disabled selected>Selecteer uw Geslacht</option>
                                     <option value="1">Man</option>
                                     <option value="2">Vrouw</option>
                                 </select>
+                                <label for="geslacht" class="rsv-select-label">Geslacht</label>
                             </div>
 
                         </div>
                         <div class="row">
                             <div class="input-field col s12">
-                                <select class="" name="woonplaats" id="woonplaats">
+                                <select class="" name="woonplaats" id="woonplaats" required>
                                     <option value="" disabled selected>Selecteer uw Woonplaats</option>
                                     <option value="1">Paramaribo</option>
                                     <option value="2">Wanica</option>
                                 </select>
+                                <label for="woonplaats" class="rsv-select-label">Woonplaats</label>
                             </div>
 
                         </div>
-                        <!-- <div class="row">
-                            <div class="input-field col s12">
-                                <select class="" name="resort" id="resort">
-                                    <option value="" disabled selected>Selecteer uw Resort</option>
-                                    <option value="1">Paramaribo</option>
-                                    <option value="2">Wanica</option>
-                                </select>
-                            </div>
-                        </div> -->
                         <div class="row">
-                            <div class="input-field col s12">
-                                <input Nummer" id="id_kaart_nummer" type="text"
-                                    class="validate rsv-input">
-                                    <label for="voornaam" class="rsv-input-label">ID Nummer</label>
-
-                            </div>
-                            <div class="row">
-                                <button class="waves-effect waves-light btn col s6 right login-btn" type="submit"
-                                    name="action" id="persoonlijke_gegevens_btn">Volgende
-                                    <i class="material-icons right">send</i>
-                                </button>
-                            </div>
+                            <button class="waves-effect waves-light btn col s6 right login-btn" type="submit"
+                                name="action" id="persoonlijke_gegevens_btn">Volgende
+                                <i class="material-icons right">send</i>
+                            </button>
                         </div>
-
-
                     </div>
+
+
 
 
                     <!-- Account Information -->
                     <!-- <div class="location-information"></div> -->
                     <div id="account_informatie" class="hidden">
-                        <div class="row">
+                        {{-- <div class="row">
                             <div class="input-field col s12">
                                 <i class="material-icons rsv-input-icon primary-text">
                                     mail_outline
                                 </i>
                                 <input placeholder="Email" id="email" type="text" class="validate rsv-input with-icon">
-                                <!-- <label for="first_name rsv-input-label">First Name</label> -->
+                                 <label for="first_name rsv-input-label">First Name</label> -->
                             </div>
-                        </div>
+                        </div> --}}
                         <div class="row">
                             <div class="input-field col s12">
                                 <i class="material-icons rsv-input-icon primary-text">
@@ -128,6 +114,8 @@
                                 </i>
                                 <input placeholder="Wachtwoord" id="password1" type="password"
                                     class="validate rsv-input with-icon">
+                                <label for="password1" class="rsv-input-label">Password</label>
+
                             </div>
                         </div>
                         <div class="row">
@@ -137,6 +125,8 @@
                                 </i>
                                 <input placeholder="Wachtwoord herhalen" id="password2" type="password"
                                     class="validate rsv-input with-icon">
+                                <label for="password2" class="rsv-input-label">Re-enter Password</label>
+
                             </div>
                         </div>
                         <div class="row">
@@ -152,6 +142,7 @@
             </form>
         </div>
     </div>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@10"></script>
     <script type="application/javascript" src="{{asset('/js/materialize.min.js')}}"></script>
     <script type="application/javascript" src={{asset('/js/main.js')}}></script>
     <script defer type="application/javascript" src="{{asset('/js/register.js')}}"></script>
