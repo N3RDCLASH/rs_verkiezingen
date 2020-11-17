@@ -41,6 +41,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
 })
 
+
 function selectType(data, element) {
     typeValue = [...element.options].map(el => el.value)
     element.options[typeValue.findIndex(id => id == data.type)].setAttribute('selected', true)
@@ -57,5 +58,46 @@ function refreshSelect(el) {
 }
 
 
+
+// Deletion Logic 
+const typeObject = objectDeleteType()
+
+function objectDeleteType() {
+    let value
+    switch (window.location.pathname) {
+        case '/partijen':
+            value = "Partij"
+            break;
+        case '/kandidaten':
+            value = "Kandidaat"
+            break;
+        case '/districten':
+            value = "District"
+            break;
+
+        default:
+            break;
+    }
+    return value;
+}
+
+function confirmDelete(id) {
+    form = document.querySelector(`#delete_form_${id}`)
+    Swal.fire({
+        title: `Bent U zeker dat U deze ${typeObject} wilt verwijderen`,
+        showDenyButton: true,
+        confirmButtonText: `Ja`,
+        denyButtonText: `Nee`,
+        html: `Insert ${typeObject} info here...`
+    }).then((result) => {
+        /* Read more about isConfirmed, isDenied below */
+        if (result.isConfirmed) {
+            Swal.fire(`${typeObject} verwijderd!`, '', 'success')
+            form.submit();
+        } else if (result.isDenied) {
+            Swal.fire(`${typeObject} niet verwijderd`, '', 'error')
+        }
+    })
+}
 
 

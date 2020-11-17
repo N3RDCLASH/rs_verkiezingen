@@ -28,8 +28,11 @@ class Kandidaat extends Model
 
     public function getOneKandidaat($id)
     {
-        $data = $this::addSelect([])->where('kandidaat_id', $id)->limit(1)->get();
-        return $data;
+        return $this::where('kandidaat_id', $id)->limit(1)->get();
+    }
+    public function getKandidaatByDistrict($district_id)
+    {
+        return $this::select(['kandidaat_naam', 'aantal_stemmen'])->where('district', $district_id)->get();
     }
     public function updateKandidaat($id, $data)
     {
@@ -40,5 +43,20 @@ class Kandidaat extends Model
                 'district' => $data['district']
             ]
         );
+    }
+
+    public function createKandidaat($data)
+    {
+        $this::create(
+            [
+                'kandidaat_naam' => $data['voornaam'] . ' ' . $data['naam'],
+                'partij' => $data['partij'],
+                'district' => $data['district']
+            ]
+        );
+    }
+    public function deleteKandidaat($id)
+    {
+        $this::where('kandidaat_id', $id)->delete();
     }
 }

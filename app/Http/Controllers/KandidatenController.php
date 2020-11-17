@@ -2,8 +2,8 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\District;
 use Illuminate\Http\Request;
+use App\Models\District;
 use App\Models\Kandidaat;
 use App\Models\Partij;
 
@@ -18,8 +18,10 @@ class KandidatenController extends Controller
     {
         //
         $kandidaat = new Kandidaat;
+        $partijen = Partij::All();
+        $districten = District::All();
         $data = $kandidaat->getAllKandidaten();
-        return view('pages.kandidaten')->with('kandidaten', $data);
+        return view('pages.kandidaten')->with(['kandidaten' => $data, 'partijen' => $partijen, 'districten' => $districten]);
     }
 
     /**
@@ -29,7 +31,6 @@ class KandidatenController extends Controller
      */
     public function create()
     {
-        //
     }
 
     /**
@@ -40,7 +41,14 @@ class KandidatenController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        //        $data = [];
+        foreach ($_POST as $key => $value) {;
+            $data[$key] = htmlentities($value, ENT_QUOTES, 'UTF-8', false);
+        }
+
+        $kandidaat = new Kandidaat;
+        $kandidaat->createKandidaat($data);
+        return redirect()->action([KandidatenController::class, 'index']);
     }
 
     /**
@@ -57,7 +65,7 @@ class KandidatenController extends Controller
         $partijen = Partij::All();
         $districten = Partij::All();
         // return ['kandidaat' => $kandidaat_data[0]->kandidaat_naam];
-        return view('pages.kandidaat')->with(['kandidaat' => $kandidaat_data, 'partijen' => $partijen, 'districten' => $partijen]);
+        return view('pages.kandidaat')->with(['kandidaat' => $kandidaat_data, 'partijen' => $partijen, 'districten' => $districten]);
     }
 
     /**
@@ -82,13 +90,13 @@ class KandidatenController extends Controller
     {
         //sanitize data
         $data = [];
-        foreach ($_POST as $key => $value) {;
+        foreach ($_POST as $key => $value) {
             $data[$key] = htmlentities($value, ENT_QUOTES, 'UTF-8', false);
         }
 
         $kandidaat = new Kandidaat;
         $kandidaat->updateKandidaat($id, $data);
-        return $this->show($id);
+        return redirect()->action([KandidatenController::class, 'show'], [$id]);
     }
 
     /**
@@ -99,6 +107,8 @@ class KandidatenController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $kandidaat = new Kandidaat;
+        $kandidaat->deleteKandidaat($id);
+        return redirect()->action([KandidatenController::class, 'index']);
     }
 }

@@ -156,6 +156,10 @@ i.edit {
     cursor: pointer;
 }
 
+.collection-item.avatar.selected {
+    background-color: #F4F1F0!important;
+}
+
 .form-step-container>.visible {
     visibility: visible;
     opacity: 1;
@@ -493,3 +497,7 @@ nav-block li i.material-icons {
 .btn-floating:hover {
     background-color: #79ff76;
 } */
+
+input:not([type]).validate+label, input[type=text]:not(.browser-default).validate+label, input[type=password]:not(.browser-default).validate+label, input[type=email]:not(.browser-default).validate+label, input[type=url]:not(.browser-default).validate+label, input[type=time]:not(.browser-default).validate+label, input[type=date]:not(.browser-default).validate+label, input[type=datetime]:not(.browser-default).validate+label, input[type=datetime-local]:not(.browser-default).validate+label, input[type=tel]:not(.browser-default).validate+label, input[type=number]:not(.browser-default).validate+label, input[type=search]:not(.browser-default).validate+label, textarea.materialize-textarea.validate+label {
+    width: fit-content;
+}
