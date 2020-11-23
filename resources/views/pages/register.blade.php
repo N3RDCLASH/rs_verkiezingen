@@ -59,7 +59,7 @@
                         </div>
                         <div class="row">
                             <div class="input-field col s12">
-                                <input type="text" class="datepicker rsv-input" required name="burger_jaardag" value="{{old('Gdatum')}}">
+                                <input type="date"  required name="burger_jaardag" value="{{old('Gdatum')}}">
                                 <label for="burger_jaardag" class="rsv-input-label">Geboortedatum</label>
                             </div>
                         </div>
@@ -103,7 +103,7 @@
                                 <i class="material-icons rsv-input-icon primary-text">
                                     lock_outline
                                 </i>
-                                <input placeholder="Wachtwoord" id="password1" name="burger_password" type="password" value="{{old('password1')}}"
+                                <input placeholder="Wachtwoord" id="password1" name="burger_password" type="password" 
                                     class="validate rsv-input with-icon">
                                 <label for="password1" class="rsv-input-label">Wachtwoord</label>
 
@@ -114,7 +114,7 @@
                                 <i class="material-icons rsv-input-icon primary-text">
                                     lock_outline
                                 </i>
-                                <input placeholder="Wachtwoord herhalen" id="password2" type="password" name="_password_confirmation_" value="{{old('password2')}}"
+                                <input placeholder="Wachtwoord herhalen" id="password2" type="password" name="password_confirmation" 
                                     class="validate rsv-input with-icon">
                                 <label for="password2" class="rsv-input-label">Wachtwoord herhalen</label>
 
