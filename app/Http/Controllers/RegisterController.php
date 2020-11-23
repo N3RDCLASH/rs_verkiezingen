@@ -22,7 +22,7 @@ class RegisterController extends Controller
               'id_nummer' => ['required'],
                 'burger_jaardag' => ['date','required'],
                 'district' => ['required'],
-                'burger_password' => ['required','password']   
+                'burger_password' => ['required']   
           ]);
 
         

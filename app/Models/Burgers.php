@@ -7,6 +7,10 @@ use Illuminate\Database\Eloquent\Model;
 class Burgers extends Model
 {
     protected $table = 'burgers';
-    protected $fillable = ['id_nummer', 'burger_password','burger_jaardag','district'];
+    protected $fillable = ['id_nummer','burger_jaardag','district'];
+    protected $hidden=['burger_password'];
     public $timestamps = false;
+
+
+    
 }

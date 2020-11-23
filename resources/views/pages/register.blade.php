@@ -15,7 +15,7 @@
         <div class="col m6 s12 waves">
         </div>
         <div class=" col m6 s12" id="register-form-container">
-            <form  action="{{route("register")}}" class="col s10 offset-s1" id="registratie_form" method="post">
+            <form  action="{{route("register")}}" class="col s10 offset-s1" id="registratie_form" method="POST">
                 {{ csrf_field() }}
                 <h3 id="login-form-title" style="margin-bottom: 1em;">Registreren</h3>
                 <div class="row">
