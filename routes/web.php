@@ -19,8 +19,8 @@ use App\Http\Controllers\PartijenController;
 
 Route::redirect('/', '/login');
 
-// Route::get('/login',[PagesController::class,'login'])->name('login');
-// Route::post('/login',[PagesController::class,'postLogin'])->name('login');
+Route::get('/login',[PagesController::class,'login'])->name('login');
+Route::post('/login',[PagesController::class,'postLogin'])->name('login');
 
 
 Route::get('/register', [RegisterController::class, 'showRegisterForm'])->name('register');
