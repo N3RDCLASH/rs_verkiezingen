@@ -46,11 +46,8 @@ function checkForError() {
 }
 
 
-
 registratie_form.addEventListener('submit', (e) => {
     e.preventDefault()
-    // get data 
-    // add data to formData object
     if (!STEP_1_COMPLETE) {
         let registratie_gegevens = new FormData(registratie_form)
         STEP_1_COMPLETE = true
@@ -65,9 +62,10 @@ registratie_form.addEventListener('submit', (e) => {
         document.querySelector('.milestone.account').classList.add('complete')
     } else {
         let passwords = document.querySelectorAll('input[type="password"]')
+
         if (STEP_1_COMPLETE && passwords[0].value !== passwords[1].value) {
             return Swal.fire(`De ingevoerde wachtwoorden komen niet overeen!`, `Bekijk uw wachtwoord en probeer het opnieuw.`, 'error')
-        } else if (passwords[0].value = '' || passwords[1].value == '') {
+        } else if (passwords[0].value == '' || passwords[1].value == '') {
             return Swal.fire(`U heeft geen wachtwoord ingevoerd!`, `Bekijk uw wachtwoord en probeer het opnieuw.`, 'error')
 
         }
