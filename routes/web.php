@@ -18,15 +18,15 @@ use App\Http\Controllers\StemmenController;
 |
 */
 
+Route::redirect('/', '/login');
 
+Route::get('/login',[PagesController::class,'login'])->name('login');
+Route::post('/login',[PagesController::class,'postLogin'])->name('login');
 
-Route::get('/login', [PagesController::class, 'login']);
 
 Route::get('/register', [RegisterController::class, 'showRegisterForm'])->name('register');
 
 Route::post('/register', [RegisterController::class, 'register'])->name('register');
-
-
 
 
 Route::get('/home', [PagesController::class, 'home']);

@@ -82,7 +82,7 @@ registratie_form.addEventListener('submit', (e) => {
 
             Toast.fire({
                 icon: 'success',
-                title: 'Registered successfully'
+                title: 'Succesvol geregistreerd'
             }).then(
                 () => {
                     registratie_form.submit();

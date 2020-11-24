@@ -16,20 +16,16 @@
 
         </div>
         <div class=" col m6 s12" id="login-form-container">
-            <form action="" class="col s10 offset-s1">
+            <form method="POST" action="{{route("login")}}" class="col s10 offset-s1">
                 <h3 id="login-form-title">Inloggen</h3>
                 <div class="row">
                     <div class="input-field col s12">
                         <i class="material-icons rsv-input-icon primary-text">
                             mail_outline
                         </i>
-                        <input placeholder="Email" i d="email" type="email" class= "validate rsv-input with-icon @error('email') is-invalid @enderror" name="email" value="{{ old('email') }}" required autocomplete="email" autofocus>  
+                        <input placeholder="Id nummer" id="email" class= "validate rsv-input with-icon"  name="id_nummer" pattern="([A-Z a-z]{2})([0-9]{6})" type="text" autofocus>  
                         <!-- <label for="first_name rsv-input-label">First Name</label> -->
-                        @error('email')
-                        <span class="invalid-feedback" role="alert">
-                            <strong>{{ $message }}</strong>
-                        </span>
-                    @enderror
+        
                     </div>
                 </div>
                 <div class="row">

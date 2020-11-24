@@ -9,11 +9,13 @@ use App\Models\District;
 
 class PagesController extends Controller
 {
-    //public
+    //
+    
     public function login()
     {
         return view('pages.login');
     }
+    
 
 
     public function home()
@@ -24,6 +26,7 @@ class PagesController extends Controller
         $districten = District::all();
         return view('pages.home')->with(['kandidaten' => $kandidaten->getAllKandidaten(), 'districten' => $districten]);
     }
+    
     public function kandidaten()
     {
         return view('pages.kandidaten');
