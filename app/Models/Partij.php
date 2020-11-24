@@ -14,4 +14,9 @@ class Partij extends Model
     // {
     //     $this->select('partij_naam','aantal_stemmen')->where()
     // }
+
+    public function updateStemAmountPartij($id)
+    {
+        $this::where('partij_id', $id)->increment(['aantal_stemmen', 1]);
+    }
 }

@@ -5,6 +5,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\PagesController;
 use App\Http\Controllers\RegisterController;
 use App\Http\Controllers\PartijenController;
+use App\Http\Controllers\StemmenController;
 
 /*
 |--------------------------------------------------------------------------
@@ -30,7 +31,7 @@ Route::post('/register', [RegisterController::class, 'register'])->name('registe
 
 Route::get('/home', [PagesController::class, 'home']);
 
-Route::get('/stemmen', [PagesController::class, 'stemmen']);
+// Route::get('/stemmen', [PagesController::class, 'stemmen']);
 
 Route::resource('partijen', PartijenController::class);
 
@@ -38,9 +39,11 @@ Route::get('/districten', [PagesController::class, 'districten']);
 
 Route::resource('kandidaten', KandidatenController::class);
 
+Route::resource('stemmen', StemmenController::class);
 
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+
+// Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
 //Auth::routes();
 
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+// Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');

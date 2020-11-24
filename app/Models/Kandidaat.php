@@ -32,7 +32,9 @@ class Kandidaat extends Model
     }
     public function getKandidaatByDistrict($district_id)
     {
-        return $this::select(['kandidaat_naam', 'aantal_stemmen'])->where('district', $district_id)->get();
+        return $this::addSelect(['partij' => Partij::select('partij_naam')
+            ->whereColumn('partij_id', 'kandidaten.partij')
+            ->limit(1)])->where('district', $district_id)->get();
     }
     public function updateKandidaat($id, $data)
     {
@@ -45,6 +47,10 @@ class Kandidaat extends Model
         );
     }
 
+    public function updateStemAmountKandidaat($id)
+    {
+        $this::where('kandidaat_id', $id)->increment(['aantal_stemmen', 1]);
+    }
     public function createKandidaat($data)
     {
         $this::create(

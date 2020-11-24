@@ -29,7 +29,22 @@ function showConfirmationModal() {
     }).then((result) => {
         /* Read more about isConfirmed, isDenied below */
         if (result.isConfirmed) {
-            Swal.fire('U heeft gestemd!', '', 'success')
+            let data = {
+                _token: document.querySelector('#csrf-token').content,
+                kandidaat_id: isChecked.querySelector('.kandidaat-info').dataset.kandidaat_id,
+                gebruiker_id: 1,
+
+
+            }
+            fetch(`${window.location.origin}/stemmen/${data.kandidaat_id}`, {
+                method: "PUT", body: JSON.stringify(data), headers: {
+                    "Content-Type": "application/json; charset=utf-8",
+                    "X-CSRF-TOKEN": document.querySelector('#csrf-token').content, credentials: 'omit',
+                    mode: 'same-origin',
+                },
+            }).then(() =>
+                Swal.fire('U heeft gestemd!', '', 'success')
+            ).catch((err) => console.log(err))
         } else if (result.isDenied) {
             Swal.fire('U heeft niet gestemd', '', 'error')
         }

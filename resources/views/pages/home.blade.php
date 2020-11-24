@@ -82,9 +82,9 @@
                 <span class="card-title">Lijst met Kandidaten</span>
                 <span class="card-subtitle">De lijst met de kiesbare DNA kandidaten</span>
             </div>
-            <div class="card-content ">
+            <div class="card-content" style="overflow-y: scroll;height: 350px;">
                 <ul class="collection">
-                    @if ($kandidaten!== '')
+                    @if ($kandidaten !== '')
                     @foreach ($kandidaten as $kandidaat)
 
                     <li class="collection-item avatar">

@@ -1,9 +1,9 @@
 <?php
 
-use App\Http\Controllers\StatistiekenController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
-
+use App\Http\Controllers\StatistiekenController;
+use App\Http\Controllers\StemmenController;
 /*
 |--------------------------------------------------------------------------
 | API Routes
@@ -20,3 +20,4 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
 });
 
 Route::get('statistieken/kandidaten/district/{district_id}', [StatistiekenController::class, 'getStemmenKandidaatPerDistrict']);
+Route::put('stemmen/{kandidaat_id}', [StemmenController::class, 'update']);

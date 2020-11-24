@@ -9,15 +9,16 @@ use App\Models\District;
 
 class PagesController extends Controller
 {
-    //
+    //public
     public function login()
     {
         return view('pages.login');
     }
 
-    
+
     public function home()
     {
+
         $kandidaten = new Kandidaat;
         $partijen = Partij::all();
         $districten = District::all();
@@ -34,11 +35,5 @@ class PagesController extends Controller
     public function districten()
     {
         return view('pages.districten');
-    }
-    public function stemmen()
-    {
-
-        $kandidaten = new Kandidaat;
-        return view('pages.stemmen')->with(['kandidaat' => $kandidaten->getAllKandidaten()]);
     }
 }

@@ -1,7 +1,11 @@
+<?php
+use App\Http\Controllers\StemmenController;
+?>
 @extends('layouts.dashboard')
 @section('content')
 
 <div class="row">
+    <meta name="csrf-token" id="csrf-token" content="{{ csrf_token() }}">
     <div class="col m12 s12">
         Filter tools here
     </div>
@@ -14,7 +18,7 @@
                     <div class="">
                         <img class="kandidaat-circle" src="https://i.imgur.com/zsXULp7.jpg" alt="">
                     </div>
-                    <div class="kandidaat-info">
+                    <div class="kandidaat-info" data-kandidaat_id="{{$kandidaat[$i]->kandidaat_id}}">
                         <span class="card-title">{{$kandidaat[$i]->kandidaat_naam}}</span>
                         <p>{{$kandidaat[$i]->partij}}</p>
                     </div>
@@ -39,9 +43,13 @@
                     <div class="kanidaat-image">
                         <img class="kandidaat-circle" src="https://i.imgur.com/zsXULp7.jpg" alt="">
                     </div>
-                    <div class="kandidaat-info">
+                    <div class="kandidaat-info" data-kandidaat_id="{{$kandidaat[$i]->kandidaat_id}}">
                         <span class="card-title">{{$kandidaat[$i]->kandidaat_naam}}</span>
                         <p>{{$kandidaat[$i]->partij}}</p>
+                        <form method="POST" id="stem_form_{{$kandidaat->kandidaat_id}}"
+                            action="{{action([StemmenController::class,'update'],[$kandidaat[$i]->kandidaat_id])}}">
+                            @method('PUT')
+                        </form>
                     </div>
                     <div class="">
                         <p>
