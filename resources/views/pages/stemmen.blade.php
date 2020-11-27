@@ -21,6 +21,12 @@ use App\Http\Controllers\StemmenController;
                     <div class="kandidaat-info" data-kandidaat_id="{{$kandidaat[$i]->kandidaat_id}}">
                         <span class="card-title">{{$kandidaat[$i]->kandidaat_naam}}</span>
                         <p>{{$kandidaat[$i]->partij}}</p>
+                        <form method="POST" id="stem_form_{{$kandidaat[$i]->kandidaat_id}}"
+                            action="{{action([StemmenController::class,'update'],[$kandidaat[$i]->kandidaat_id])}}">
+                            @csrf()
+                            @method('PUT')
+                            <input type="hidden" name="gebruiker_id" value="{{$user->gebruiker_id}}">
+                        </form>
                     </div>
                     <div class="">
                         <p>
@@ -46,9 +52,11 @@ use App\Http\Controllers\StemmenController;
                     <div class="kandidaat-info" data-kandidaat_id="{{$kandidaat[$i]->kandidaat_id}}">
                         <span class="card-title">{{$kandidaat[$i]->kandidaat_naam}}</span>
                         <p>{{$kandidaat[$i]->partij}}</p>
-                        <form method="POST" id="stem_form_{{$kandidaat->kandidaat_id}}"
+                        <form method="POST" id="stem_form_{{$kandidaat[$i]->kandidaat_id}}"
                             action="{{action([StemmenController::class,'update'],[$kandidaat[$i]->kandidaat_id])}}">
+                            @csrf()
                             @method('PUT')
+                            <input type="hidden" name="gebruiker_id" value="{{$user->gebruiker_id}}">
                         </form>
                     </div>
                     <div class="">

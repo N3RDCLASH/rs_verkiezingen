@@ -10,28 +10,30 @@ use Illuminate\http\Request;
 
 class RegisterController extends Controller
 {
-    public function showRegisterForm(){
-     return view ('pages.register');
-
-    }
-
-    
-  public function register()
-    {
-          $this->validate(request(), [
-              'id_nummer' => ['required'],
-                'burger_jaardag' => ['date','required'],
-                'district' => ['required'],
-                'burger_password' => ['required']   
-          ]);
-
-        
-          Burgers::create(request([
-            'id_nummer','burger_jaardag','district', 'burger_password' 
-        ]));
-        return redirect()->to('/home');}
-
-        
-    
+  public function showRegisterForm()
+  {
+    return view('pages.register');
   }
 
+
+  public function register()
+  {
+    $this->validate(request(), [
+      'id_nummer' => ['required'],
+      'burger_jaardag' => ['date', 'required'],
+      'district' => ['required'],
+      'burger_password' => ['required']
+    ]);
+
+
+    Burgers::create([
+      'id_nummer' => request()->id_nummer,
+      'burger_jaardag' => request()->burger_jaardag,
+      'district', request()->district,
+      'burger_password' => Hash::make(request()->burger_password)
+    ]);
+
+    auth()->attempt(request()->only('id_nummer', 'burger_password'));
+    return redirect()->to('/home');
+  }
+}

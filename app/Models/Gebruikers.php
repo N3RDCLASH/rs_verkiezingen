@@ -14,10 +14,5 @@ class Gebruikers extends Model
     protected $fillable = ['gebruikers_naams'];
     protected $hidden = ['gebruikers_password'];
     public $timestamps = false;
-
-
-    public function updateStemStatusGebruiker($data)
-    {
-        $this::where('gebruiker_id', $data->id)->update(['gestemd', $data->status]);
-    }
+    
 }

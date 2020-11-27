@@ -9,6 +9,8 @@ class Partij extends Model
 {
     protected $table = 'partij';
     protected $primaryKey = "partij_id";
+    public $timestamps = false;
+
 
     // public function getPartijByDistrict($district_id)
     // {
@@ -17,6 +19,6 @@ class Partij extends Model
 
     public function updateStemAmountPartij($id)
     {
-        $this::where('partij_id', $id)->increment(['aantal_stemmen', 1]);
+        $this::where('partij_id', $id)->increment('aantal_stemmen');
     }
 }

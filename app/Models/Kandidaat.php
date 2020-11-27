@@ -49,7 +49,7 @@ class Kandidaat extends Model
 
     public function updateStemAmountKandidaat($id)
     {
-        $this::where('kandidaat_id', $id)->increment(['aantal_stemmen', 1]);
+        $this::where('kandidaat_id', $id)->increment('aantal_stemmen');
     }
     public function createKandidaat($data)
     {

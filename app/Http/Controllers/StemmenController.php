@@ -3,7 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Models\Gebruikers;
+use App\Models\Burgers;
 use App\Models\Kandidaat;
 use App\Models\Partij;
 use PhpParser\Node\Stmt\Return_;
@@ -19,15 +19,15 @@ class StemmenController extends Controller
     {
         //
         $user = (object)[
-            "gebruikers_id" => 1,
+            "gebruiker_id" => 1,
             "rol" => "user",
             "gebruikers_naam" => "Viroja Kartodikromo",
-            "district" => 1,
+            "district" => 2,
             "gestemd" => 0
         ];
         $kandidaten = new Kandidaat;
         if ($user->gestemd == 0)
-            return view('pages.stemmen')->with(['kandidaat' => $kandidaten->getKandidaatByDistrict($user->district)]);
+            return view('pages.stemmen')->with(['kandidaat' => $kandidaten->getKandidaatByDistrict($user->district), 'user' => $user]);
         if ($user->gestemd == 1)
             return view('pages.stemmen');
     }
@@ -85,14 +85,13 @@ class StemmenController extends Controller
      */
     public function update(Request $request, $id)
     {
-        return var_dump($request);
-        // $gebruiker = new Gebruikers();
-        // $partij = new Partij();
-        // $kandidaat = new Kandidaat();
-        // $gebruiker->updateStemStatusGebruiker(['kandidaat_id' => $_POST['kandidaat_id'], 'user_id' => $_POST['user_id']]);
-        // $kandidaat->updateStemAmountKandidaat($_POST['gebruiker_id']);
-        // $partij->updateStemAmountPartij($kandidaat->getOneKandidaat($_POST['kandidaat_id'])->partij);
-        // return redirect(['pages.stemmen']);
+        $burger = new Burgers();
+        $partij = new Partij();
+        $kandidaat = new Kandidaat();
+        $burger->updateStemStatusBurger((object)['kandidaat_id' => $id, 'gebruiker_id' => $_POST['gebruiker_id'], 'status' => 1]);
+        $kandidaat->updateStemAmountKandidaat($id);
+        $partij->updateStemAmountPartij($kandidaat->getOneKandidaat($id)[0]->partij);
+        return redirect()->action([StemmenController::class, 'index']);
     }
 
     /**
