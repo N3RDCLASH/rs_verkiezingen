@@ -16,7 +16,8 @@ CREATE TABLE rs_verkiezingen.burgers(
     burger_jaardag date,
     district int,
     gestemd varchar(5),
-    constraint FK_burger_district FOREIGN KEY (district) REFERENCES district(district_id)
+    constraint FK_burger_district FOREIGN KEY (district) REFERENCES district(district_id) ON DELETE
+    SET NULL
 );
 CREATE TABLE rs_verkiezingen.partij(
     partij_id int auto_increment primary key,
@@ -30,11 +31,13 @@ CREATE TABLE rs_verkiezingen.kandidaten(
     partij int,
     district int,
     aantal_stemmen int,
-    constraint FK_kandidaat_partij FOREIGN KEY (partij) REFERENCES partij(partij_id)
+    constraint FK_kandidaat_partij FOREIGN KEY (partij) REFERENCES partij(partij_id) ON DELETE
+    SET NULL
 );
 CREATE TABLE rs_verkiezingen.res_per_dis(
     stem_id int auto_increment primary key,
     partij int,
     stemmen int,
-    constraint FK_partij FOREIGN KEY (partij) REFERENCES partij(partij_id)
+    constraint FK_partij FOREIGN KEY (partij) REFERENCES partij(partij_id) ON DELETE
+    SET NULL
 );
