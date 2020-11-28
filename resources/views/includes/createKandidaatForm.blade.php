@@ -3,7 +3,7 @@ use App\Http\Controllers\KandidatenController;
 ?>
 <div id="modal1" class="modal">
     <div class="modal-content row">
-        <form class="col s10 offset-s1" action="{{action([KandidatenController::class,'store'],[$kandidaat])}}"
+        <form class="col s10 offset-s1" action="{{action([KandidatenController::class,'store'],[$kandidaat??Null])}}"
             id="KandidaatForm" method="POST">
             <h5>Kandidaat Registreren</h5>
             @csrf
@@ -22,10 +22,10 @@ use App\Http\Controllers\KandidatenController;
             </div>
             <div class="row">
                 <div class="input-field col s12">
-                    <select class="" name="partij" id="partij" required>
-                        <option value="" disabled selected>Selecteer de politieke partij</option>
-                        @foreach ($partijen as $partij)
-                        <option value="{{$partij->partij_id}}">{{$partij->partij_afkorting}}</option>
+                    <select class="" name="district" id="district" required>
+                        <option value="" disabled selected>Selecteer de politieke district</option>
+                        @foreach ($districten as $district)
+                        <option value="{{$district->district_id}}">{{$district->district_afkorting}}</option>
                         @endforeach
                     </select>
                 </div>

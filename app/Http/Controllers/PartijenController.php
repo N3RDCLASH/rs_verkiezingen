@@ -36,6 +36,13 @@ class PartijenController extends Controller
     public function store(Request $request)
     {
         //
+        foreach ($_POST as $key => $value) {;
+            $data[$key] = htmlentities($value, ENT_QUOTES, 'UTF-8', false);
+        }
+
+        $partij = new Partij;
+        $partij->createPartij($data);
+        return redirect()->action([PartijenController::class, 'index']);
     }
 
     /**
@@ -70,7 +77,13 @@ class PartijenController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        foreach ($_POST as $key => $value) {;
+            $data[$key] = htmlentities($value, ENT_QUOTES, 'UTF-8', false);
+        }
+
+        $partij = new Partij;
+        $partij->updatePartij($data, $id);
+        return redirect()->action([PartijenController::class, 'show'], $id);
     }
 
     /**
@@ -81,6 +94,8 @@ class PartijenController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $partij = new Partij;
+        $partij->deletePartij($id);
+        return redirect()->action([PartijenController::class, 'index']);
     }
 }

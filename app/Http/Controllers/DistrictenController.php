@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Models\District;
 
 class DistrictenController extends Controller
 {
@@ -13,7 +14,8 @@ class DistrictenController extends Controller
      */
     public function index()
     {
-        //
+        $districten = new District();
+        return view('pages.districten')->with(['districten' => District::All()]);
     }
 
     /**
@@ -35,6 +37,12 @@ class DistrictenController extends Controller
     public function store(Request $request)
     {
         //
+        foreach ($_POST as $key => $value) {;
+            $data[$key] = htmlentities($value, ENT_QUOTES, 'UTF-8', false);
+        }
+        $district = new District();
+        $district->createDistrict($data);
+        return redirect()->action([DistrictenController::class, 'index']);
     }
 
     /**
@@ -45,7 +53,9 @@ class DistrictenController extends Controller
      */
     public function show($id)
     {
-        //
+
+        $district = new District();
+        return view('pages.district')->with(['district' => $district->getOneDistrict($id)[0]]);
     }
 
     /**
@@ -68,7 +78,13 @@ class DistrictenController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        foreach ($_POST as $key => $value) {;
+            $data[$key] = htmlentities($value, ENT_QUOTES, 'UTF-8', false);
+        }
+
+        $district = new District();
+        $district->updateDistrict($data, $id);
+        return redirect()->action([DistrictenController::class, 'show'], $id);
     }
 
     /**
@@ -80,5 +96,8 @@ class DistrictenController extends Controller
     public function destroy($id)
     {
         //
+        $district = new District();
+        $district->deleteDistrict($id);
+        return redirect()->action([DistrictenController::class, 'index']);
     }
 }

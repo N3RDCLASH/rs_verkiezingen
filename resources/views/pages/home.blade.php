@@ -84,7 +84,7 @@
             </div>
             <div class="card-content" style="overflow-y: scroll;height: 350px;">
                 <ul class="collection">
-                    @if ($kandidaten !== '')
+                    @if (count($kandidaten) !== 0)
                     @foreach ($kandidaten as $kandidaat)
 
                     <li class="collection-item avatar">

@@ -1,5 +1,7 @@
 @extends('layouts.dashboard')
-
+<?php
+use App\Http\Controllers\PartijenController;
+?>
 @section('content')
 <div class="row">
     <div class="col m8 offset-m2 s12">
@@ -31,8 +33,7 @@
                                 </a>
                             </td>
                             <td>
-                                <form action="
-                                {{-- {{action([PartijenController::class,'destroy'],[$partij])}}" --}}
+                                <form action="{{action([PartijenController::class,"destroy"],[$partij])}}"
                                     id="delete_form_{{$partij->partij_id}}" method="post">
                                     @csrf
                                     @method('delete')
@@ -59,4 +60,6 @@
         </div>
     </div>
 </div>
+@include('includes.fab')
+@include('includes.createPartijForm')
 @endsection

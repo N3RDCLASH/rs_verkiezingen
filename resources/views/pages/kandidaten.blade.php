@@ -63,5 +63,4 @@ use App\Http\Controllers\KandidatenController;
 </div>
 @include('includes.fab')
 @include('includes.createKandidaatForm')
-<script type="application/javascript" defer src="{{asset('js/kandidaten.js')}}"></script>
 @endsection
