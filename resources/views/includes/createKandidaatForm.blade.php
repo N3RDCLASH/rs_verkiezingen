@@ -22,10 +22,10 @@ use App\Http\Controllers\KandidatenController;
             </div>
             <div class="row">
                 <div class="input-field col s12">
-                    <select class="" name="district" id="district" required>
-                        <option value="" disabled selected>Selecteer de politieke district</option>
-                        @foreach ($districten as $district)
-                        <option value="{{$district->district_id}}">{{$district->district_naam}}</option>
+                    <select class="" name="partij" id="partij" required>
+                        <option value="" disabled selected>Selecteer de politieke partij</option>
+                        @foreach ($partijen as $partij)
+                        <option value="{{$partij->partij_id}}">{{$partij->partij_naam}}</option>
                         @endforeach
                     </select>
                 </div>
