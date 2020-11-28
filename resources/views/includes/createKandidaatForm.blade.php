@@ -25,7 +25,7 @@ use App\Http\Controllers\KandidatenController;
                     <select class="" name="district" id="district" required>
                         <option value="" disabled selected>Selecteer de politieke district</option>
                         @foreach ($districten as $district)
-                        <option value="{{$district->district_id}}">{{$district->district_afkorting}}</option>
+                        <option value="{{$district->district_id}}">{{$district->district_naam}}</option>
                         @endforeach
                     </select>
                 </div>
