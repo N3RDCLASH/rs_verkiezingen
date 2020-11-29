@@ -4,7 +4,9 @@ namespace App\Http\Controllers;
 
 use App\Http\Controllers\Controller;
 use App\Models\Burgers;
+use Exception;
 use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\http\Request;
 
@@ -27,13 +29,21 @@ class RegisterController extends Controller
 
 
     Burgers::create([
-      'id_nummer' => request()->id_nummer,
-      'burger_jaardag' => request()->burger_jaardag,
-      'district', request()->district,
-      'burger_password' => Hash::make(request()->burger_password)
+      $id_nummer = request()->id_nummer,
+      $burger_jaardag = request()->burger_jaardag,
+      $district = request()->district,
+      $burger_password = Hash::make(request()->burger_password)
     ]);
 
-    auth()->attempt(request()->only('id_nummer', 'burger_password'));
+    
+    // DB::table('burgers')->insert(
+    //   ['id_nummer'=>  $id_nummer, 
+    //   'burger_password'=>  $burger_password, 
+    //   'burger_jaardag' => $burger_jaardag,
+    //   'district'=> $district]
+    //  );
     return redirect()->to('/home');
+    
+    
   }
 }
