@@ -10,13 +10,16 @@ use App\Http\Controllers\StemmenController;
         Filter tools here
     </div>
 </div>
-@for ($i = 0; $i < count($kandidaat); $i++) @if ($i%2==0) <div class="row">
+@for ($i = 0; $i < count($kandidaat); $i++) @if ($i%2==0) 
+<div class="row">
     <div class="col m6 s12">
         <div class="card white kandidaat">
             <div class="card-content ">
                 <div class="kandidaat-info-container">
                     <div class="">
-                        <img class="kandidaat-circle" src="https://i.imgur.com/zsXULp7.jpg" alt="">
+                        <img class="kandidaat-circle"
+                            src="https://i.picsum.photos/id/1/5616/3744.jpg?hmac=kKHwwU8s46oNettHKwJ24qOlIAsWN9d2TtsXDoCWWsQ"
+                            alt="">
                     </div>
                     <div class="kandidaat-info" data-kandidaat_id="{{$kandidaat[$i]->kandidaat_id}}">
                         <span class="card-title">{{$kandidaat[$i]->kandidaat_naam}}</span>
@@ -47,7 +50,9 @@ use App\Http\Controllers\StemmenController;
             <div class="card-content ">
                 <div class="kandidaat-info-container">
                     <div class="kanidaat-image">
-                        <img class="kandidaat-circle" src="https://i.imgur.com/zsXULp7.jpg" alt="">
+                        <img class="kandidaat-circle"
+                            src="https://i.picsum.photos/id/1/5616/3744.jpg?hmac=kKHwwU8s46oNettHKwJ24qOlIAsWN9d2TtsXDoCWWsQ"
+                            alt="">
                     </div>
                     <div class="kandidaat-info" data-kandidaat_id="{{$kandidaat[$i]->kandidaat_id}}">
                         <span class="card-title">{{$kandidaat[$i]->kandidaat_naam}}</span>

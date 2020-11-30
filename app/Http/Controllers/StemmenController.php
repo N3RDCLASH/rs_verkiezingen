@@ -22,18 +22,12 @@ class StemmenController extends Controller
     public function index()
     {
         //
-        $user = (object)[
-            "gebruiker_id" => 1,
-            "rol" => "user",
-            "gebruikers_naam" => "Viroja Kartodikromo",
-            "district" => 2,
-            "gestemd" => 0
-        ];
+        $user = auth()->user();
         $kandidaten = new Kandidaat;
         if ($user->gestemd == 0)
             return view('pages.stemmen')->with(['kandidaat' => $kandidaten->getKandidaatByDistrict($user->district), 'user' => $user]);
         if ($user->gestemd == 1)
-            return view('pages.stemmen');
+            return view('pages.gestemd');
     }
 
     /**

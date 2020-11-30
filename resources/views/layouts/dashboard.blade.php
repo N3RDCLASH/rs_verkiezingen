@@ -24,9 +24,11 @@
                 </li>
                 <li>
                     <a href="#" class="user-dropdown">
-                        <img class='user-dropdown-circle' src="https://i.imgur.com/zsXULp7.jpg" alt="">
+                        <img class='user-dropdown-circle'
+                            src="https://i.picsum.photos/id/1/5616/3744.jpg?hmac=kKHwwU8s46oNettHKwJ24qOlIAsWN9d2TtsXDoCWWsQ"
+                            alt="">
                         <span class="user-dropdown-text">
-                            Joel Naarendorp
+                            {{strtoupper(auth()->user()->id_nummer)}}
                             <i class="material-icons">expand_more</i>
                         </span>
                     </a>

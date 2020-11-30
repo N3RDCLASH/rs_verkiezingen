@@ -10,7 +10,7 @@ for (let card of document.getElementsByClassName('kandidaat')) {
 
 
 function selecteerKandidaat() {
-    this.querySelector('input').checked = true
+    this.querySelector('input[type=radio]').checked = true;
     stem_btn.classList.remove('hide');
     isChecked = this
 }
