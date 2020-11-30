@@ -11,11 +11,11 @@ CREATE TABLE rs_verkiezingen.gebruikers(
 );
 CREATE TABLE rs_verkiezingen.burgers(
     burger_id int auto_increment primary key,
-    id_nummer varchar(50),
+    id_nummer varchar(50) UNIQUE,
     burger_password varchar(255),
     burger_jaardag date,
     district int,
-    gestemd varchar(5),
+    gestemd varchar(5) DEFAULT '0',
     constraint FK_burger_district FOREIGN KEY (district) REFERENCES district(district_id) ON DELETE
     SET NULL
 );
