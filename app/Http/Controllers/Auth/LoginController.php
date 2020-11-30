@@ -65,7 +65,7 @@ class LoginController extends Controller
                 back()->with('status', "Invalid Login Details");
             } else {
                 echo "pass";
-                // return redirect()->action([HomeController::class, 'index']);
+                return redirect()->action([HomeController::class, 'index']);
             }
         }
     }
