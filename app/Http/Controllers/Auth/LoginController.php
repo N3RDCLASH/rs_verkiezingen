@@ -1,18 +1,17 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\Auth;
 
 use Illuminate\Http\Request;
-use App\Models\Burgers;
-use App\Models\Kandidaat;
-use App\Models\Partij;
-use PhpParser\Node\Stmt\Return_;
+use App\Http\Controllers\Controller;
+use App\Http\Controllers\PagesController;
+use Illuminate\Support\Facades\Auth;
 
-class StemmenController extends Controller
+class LoginController extends Controller
 {
     public function __construct()
     {
-        $this->middleware('auth');
+        $this->middleware('guest');
     }
     /**
      * Display a listing of the resource.
@@ -21,19 +20,7 @@ class StemmenController extends Controller
      */
     public function index()
     {
-        //
-        $user = (object)[
-            "gebruiker_id" => 1,
-            "rol" => "user",
-            "gebruikers_naam" => "Viroja Kartodikromo",
-            "district" => 2,
-            "gestemd" => 0
-        ];
-        $kandidaten = new Kandidaat;
-        if ($user->gestemd == 0)
-            return view('pages.stemmen')->with(['kandidaat' => $kandidaten->getKandidaatByDistrict($user->district), 'user' => $user]);
-        if ($user->gestemd == 1)
-            return view('pages.stemmen');
+        return view('pages.login');
     }
 
     /**
@@ -44,7 +31,6 @@ class StemmenController extends Controller
     public function create()
     {
         //
-
     }
 
     /**
@@ -55,8 +41,19 @@ class StemmenController extends Controller
      */
     public function store(Request $request)
     {
-        //
+
+        if (!auth()->attempt([
+            "id_nummer" => $request->id_nummer,
+            "password" => $request->burger_password
+        ])) {
+            echo "fail";
+            back()->with('status', "Invalid Login Details");
+        } else {
+            echo "pass";
+            return redirect()->action([PagesController::class, 'home']);
+        }
     }
+    //
 
     /**
      * Display the specified resource.
@@ -89,13 +86,7 @@ class StemmenController extends Controller
      */
     public function update(Request $request, $id)
     {
-        $burger = new Burgers();
-        $partij = new Partij();
-        $kandidaat = new Kandidaat();
-        $burger->updateStemStatusBurger((object)['kandidaat_id' => $id, 'gebruiker_id' => $_POST['gebruiker_id'], 'status' => 1]);
-        $kandidaat->updateStemAmountKandidaat($id);
-        $partij->updateStemAmountPartij($kandidaat->getOneKandidaat($id)[0]->partij);
-        return redirect()->action([StemmenController::class, 'index']);
+        //
     }
 
     /**
@@ -106,6 +97,6 @@ class StemmenController extends Controller
      */
     public function destroy($id)
     {
-        //
+        //c
     }
 }

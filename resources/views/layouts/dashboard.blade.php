@@ -33,7 +33,7 @@
                     <ul id='dropdown2' class='user-dropdown-content'>
                         <li><a href="profiel" id="huidige_gebruiker_naam">
                                 <i class="material-icons left">person</i>Mijn Account</a></li>
-                        <li><a onclick="" href="/login">
+                        <li><a onclick="" href="/logout">
                                 <i class="material-icons left">exit_to_app</i>
                                 Logout</a></li>
                     </ul>

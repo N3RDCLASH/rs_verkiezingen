@@ -4,9 +4,11 @@ use App\Http\Controllers\KandidatenController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\DistrictenController;
 use App\Http\Controllers\PagesController;
-use App\Http\Controllers\RegisterController;
 use App\Http\Controllers\PartijenController;
 use App\Http\Controllers\StemmenController;
+use App\Http\Controllers\Auth\RegisterController;
+use App\Http\Controllers\Auth\LoginController;
+use App\Http\Controllers\Auth\LogoutController;
 
 /*
 |--------------------------------------------------------------------------
@@ -21,18 +23,15 @@ use App\Http\Controllers\StemmenController;
 
 Route::redirect('/', '/login');
 
-Route::get('/login', [PagesController::class, 'login'])->name('login');
-Route::post('/login', [PagesController::class, 'postLogin'])->name('login');
+Route::resource('login', LoginController::class);
 
+Route::get('logout', [LogoutController::class, 'store']);
 
 Route::get('/register', [RegisterController::class, 'showRegisterForm'])->name('register');
 
 Route::post('/register', [RegisterController::class, 'register'])->name('register');
 
-
 Route::get('/home', [PagesController::class, 'home']);
-
-// Route::get('/stemmen', [PagesController::class, 'stemmen']);
 
 Route::resource('partijen', PartijenController::class);
 
