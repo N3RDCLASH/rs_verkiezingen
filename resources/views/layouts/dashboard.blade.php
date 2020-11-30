@@ -26,7 +26,9 @@
                     <a href="#" class="user-dropdown">
                         <img class='user-dropdown-circle' src="{{asset('assets/placeholder-user.png')}}" alt="">
                         <span class="user-dropdown-text">
-                            {{strtoupper(auth()->user()->id_nummer)}}
+                            <?php
+                        echo property_exists(auth()->user(),'burger_id')?strtoupper(auth()->user()->id_nummer):UCFirst(auth('admin')->user()->gebruikers_naam);
+                         ?>
                             <i class="material-icons">expand_more</i>
                         </span>
                     </a>

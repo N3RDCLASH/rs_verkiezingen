@@ -1,7 +1,6 @@
 <?php
 // user role logic here...
-$user_role = auth()->user()->id_nummer?'user':'admin'; //this is for testing purposes 
-
+$user_role = property_exists(auth()->user(),'burger_id')?'user':'admin'; //this is for testing purposes 
 ?>
 <div class="sidebar col">
     <ul id="slide-out" class="sidenav sidenav-fixed">
@@ -55,6 +54,14 @@ $user_role = auth()->user()->id_nummer?'user':'admin'; //this is for testing pur
                         location_city
                     </i>
                     <span> Districten</span>
+                </a>
+            </li>
+            <li class="<?php echo ((\Request::is('admins')) ? "active" : ""); ?>">
+                <a href="/admins">
+                    <i class="material-icons left">
+                        supervisor_account
+                    </i>
+                    <span>Admins</span>
                 </a>
             </li>
             @endif

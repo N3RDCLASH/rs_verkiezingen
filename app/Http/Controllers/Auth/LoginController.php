@@ -4,7 +4,8 @@ namespace App\Http\Controllers\Auth;
 
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
-use App\Http\Controllers\PagesController;
+use App\Http\Controllers\HomeController;
+use App\Models\Gebruikers;
 use Illuminate\Support\Facades\Auth;
 
 class LoginController extends Controller
@@ -12,6 +13,7 @@ class LoginController extends Controller
     public function __construct()
     {
         $this->middleware('guest');
+        $this->middleware('guest:admin');
     }
     /**
      * Display a listing of the resource.
@@ -41,18 +43,33 @@ class LoginController extends Controller
      */
     public function store(Request $request)
     {
+        if (request()->user_role == "user") {
+            if (!Auth()->attempt([
+                "id_nummer" => request()->id_nummer,
+                "password" => request()->burger_password
+            ])) {
+                echo "fail 1";
+                back()->with('status', "Invalid Login Details");
+            } else {
+                echo "pass";
+                return redirect()->action([HomeController::class, 'home']);
+            }
+        }
 
-        if (!auth()->attempt([
-            "id_nummer" => $request->id_nummer,
-            "password" => $request->burger_password
-        ])) {
-            echo "fail";
-            back()->with('status', "Invalid Login Details");
-        } else {
-            echo "pass";
-            return redirect()->action([PagesController::class, 'home']);
+        if (request()->user_role == "admin") {
+            if (!Auth::guard('admin')->attempt([
+                "gebruikers_naam" => $request->gebruikers_naam,
+                "password" => $request->gebruikers_password
+            ])) {
+                echo "fail";
+                back()->with('status', "Invalid Login Details");
+            } else {
+                echo "pass";
+                // return redirect()->action([HomeController::class, 'index']);
+            }
         }
     }
+
     //
 
     /**

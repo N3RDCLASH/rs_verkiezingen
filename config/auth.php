@@ -40,6 +40,10 @@ return [
             'driver' => 'session',
             'provider' => 'users',
         ],
+        'admin' => [
+            'driver' => 'session',
+            'provider' => 'admins',
+        ],
 
         'api' => [
             'driver' => 'token',
@@ -70,6 +74,10 @@ return [
             'driver' => 'eloquent',
             'model' => App\Models\Burgers::class,
         ],
+        'admins' => [
+            'driver' => 'eloquent',
+            'model' => App\Models\Gebruikers::class,
+        ]
 
         // 'users' => [
         //     'driver' => 'database',

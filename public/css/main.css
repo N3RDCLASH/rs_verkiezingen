@@ -430,6 +430,7 @@ nav-block li i.material-icons {
     font-family: 'Roboto', sans-serif;
     color: black;
     transition: none;
+    min-width: 216.25px;
 }
 
 .user-dropdown:hover {
@@ -467,7 +468,7 @@ nav-block li i.material-icons {
     visibility: hidden;
     position: absolute;
     background-color: #f9f9f9;
-    min-width: 173.36px;
+    min-width: 216.25px;
     box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
     z-index: 1;
     transition: all 0.5s ease;

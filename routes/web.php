@@ -9,6 +9,7 @@ use App\Http\Controllers\StemmenController;
 use App\Http\Controllers\Auth\RegisterController;
 use App\Http\Controllers\Auth\LoginController;
 use App\Http\Controllers\Auth\LogoutController;
+use App\Http\Controllers\HomeController;
 
 /*
 |--------------------------------------------------------------------------
@@ -31,7 +32,7 @@ Route::get('/register', [RegisterController::class, 'showRegisterForm'])->name('
 
 Route::post('/register', [RegisterController::class, 'register'])->name('register');
 
-Route::get('/home', [PagesController::class, 'home']);
+Route::get('/home', [HomeController::class, 'index']);
 
 Route::resource('partijen', PartijenController::class);
 
