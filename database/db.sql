@@ -15,7 +15,7 @@ CREATE TABLE rs_verkiezingen.burgers(
     burger_password varchar(255),
     burger_jaardag date,
     district int,
-    gestemd varchar(5) DEFAULT '0',
+    gestemd bit(1) DEFAULT 0,
     constraint FK_burger_district FOREIGN KEY (district) REFERENCES district(district_id) ON DELETE
     SET NULL
 );

@@ -24,9 +24,7 @@
                 </li>
                 <li>
                     <a href="#" class="user-dropdown">
-                        <img class='user-dropdown-circle'
-                            src="https://i.picsum.photos/id/1/5616/3744.jpg?hmac=kKHwwU8s46oNettHKwJ24qOlIAsWN9d2TtsXDoCWWsQ"
-                            alt="">
+                        <img class='user-dropdown-circle' src="{{asset('assets/placeholder-user.png')}}" alt="">
                         <span class="user-dropdown-text">
                             {{strtoupper(auth()->user()->id_nummer)}}
                             <i class="material-icons">expand_more</i>
@@ -46,7 +44,13 @@
 
     @include('includes.sidebar')
     <div class="main-content">
-        @yield('content')
+        <div class="row">
+
+            <div class="col s12">
+
+                @yield('content')
+            </div>
+        </div>
     </div>
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@10"></script>
     <script type="application/javascript" src="{{asset('js/node_modules/chart.js/dist/Chart.min.js')}}"></script>

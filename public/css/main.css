@@ -46,6 +46,16 @@ body {
     background-color: var(--grey);
 }
 
+.gestemd {
+    background: url(../assets/voted.svg);
+    background-size: contain;
+    background-position: center;
+    /* background-color: antiquewhite; */
+    height: 70vh;
+    margin: 0;
+    background-repeat: no-repeat;
+}
+
 .primary-text {
     color: var(--primary);
 }
@@ -209,10 +219,6 @@ i.edit {
     background-color: #377e3f;
 }
 
-.milestone.personal {}
-
-.milestone.address {}
-
 .milestone.finished {
     align-self: flex-end;
 }
@@ -366,6 +372,11 @@ nav-block li i.material-icons {
 
 #sidebar_toggle {
     cursor: pointer;
+    transform: scale(0.8) translate(-24px, 5px);
+}
+
+#sidebar_toggle.is-active {
+    transform: scale(1) translate(-0px, 5px) !important;
 }
 
 .sidebar_logo {}
@@ -456,7 +467,7 @@ nav-block li i.material-icons {
     visibility: hidden;
     position: absolute;
     background-color: #f9f9f9;
-    min-width: 216.25px;
+    min-width: 173.36px;
     box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
     z-index: 1;
     transition: all 0.5s ease;

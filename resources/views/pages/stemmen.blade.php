@@ -10,16 +10,13 @@ use App\Http\Controllers\StemmenController;
         Filter tools here
     </div>
 </div>
-@for ($i = 0; $i < count($kandidaat); $i++) @if ($i%2==0) 
-<div class="row">
+@for ($i = 0; $i < count($kandidaat); $i++) @if ($i%2==0) <div class="row">
     <div class="col m6 s12">
         <div class="card white kandidaat">
             <div class="card-content ">
                 <div class="kandidaat-info-container">
                     <div class="">
-                        <img class="kandidaat-circle"
-                            src="https://i.picsum.photos/id/1/5616/3744.jpg?hmac=kKHwwU8s46oNettHKwJ24qOlIAsWN9d2TtsXDoCWWsQ"
-                            alt="">
+                        <img class="kandidaat-circle" src="{{asset('assets/placeholder-user.png')}}" alt="">
                     </div>
                     <div class="kandidaat-info" data-kandidaat_id="{{$kandidaat[$i]->kandidaat_id}}">
                         <span class="card-title">{{$kandidaat[$i]->kandidaat_naam}}</span>
@@ -28,7 +25,7 @@ use App\Http\Controllers\StemmenController;
                             action="{{action([StemmenController::class,'update'],[$kandidaat[$i]->kandidaat_id])}}">
                             @csrf()
                             @method('PUT')
-                            <input type="hidden" name="gebruiker_id" value="{{$user->gebruiker_id}}">
+                            <input type="hidden" name="burger_id" value="{{$user->burger_id}}">
                         </form>
                     </div>
                     <div class="">
@@ -50,18 +47,16 @@ use App\Http\Controllers\StemmenController;
             <div class="card-content ">
                 <div class="kandidaat-info-container">
                     <div class="kanidaat-image">
-                        <img class="kandidaat-circle"
-                            src="https://i.picsum.photos/id/1/5616/3744.jpg?hmac=kKHwwU8s46oNettHKwJ24qOlIAsWN9d2TtsXDoCWWsQ"
-                            alt="">
+                        <img class="kandidaat-circle" src="{{asset('assets/placeholder-user.png')}} alt="">
                     </div>
-                    <div class="kandidaat-info" data-kandidaat_id="{{$kandidaat[$i]->kandidaat_id}}">
+                    <div class=" kandidaat-info" data-kandidaat_id="{{$kandidaat[$i]->kandidaat_id}}">
                         <span class="card-title">{{$kandidaat[$i]->kandidaat_naam}}</span>
                         <p>{{$kandidaat[$i]->partij}}</p>
                         <form method="POST" id="stem_form_{{$kandidaat[$i]->kandidaat_id}}"
                             action="{{action([StemmenController::class,'update'],[$kandidaat[$i]->kandidaat_id])}}">
                             @csrf()
                             @method('PUT')
-                            <input type="hidden" name="gebruiker_id" value="{{$user->gebruiker_id}}">
+                            <input type="hidden" name="burger_id" value="{{$user->burger_id}}">
                         </form>
                     </div>
                     <div class="">

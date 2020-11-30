@@ -86,7 +86,7 @@ class StemmenController extends Controller
         $burger = new Burgers();
         $partij = new Partij();
         $kandidaat = new Kandidaat();
-        $burger->updateStemStatusBurger((object)['kandidaat_id' => $id, 'gebruiker_id' => $_POST['gebruiker_id'], 'status' => 1]);
+        $burger->updateStemStatusBurger((object)['kandidaat_id' => $id, 'burger_id' => $_POST['burger_id'], 'status' => 1]);
         $kandidaat->updateStemAmountKandidaat($id);
         $partij->updateStemAmountPartij($kandidaat->getOneKandidaat($id)[0]->partij);
         return redirect()->action([StemmenController::class, 'index']);

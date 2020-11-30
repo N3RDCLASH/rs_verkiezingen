@@ -17,7 +17,7 @@ class Burgers extends Authenticatable
 
     public function updateStemStatusBurger($data)
     {
-        $this::where('burger_id', $data->gebruiker_id)->update(['gestemd' => $data->status]);
+        $this::where('burger_id', $data->burger_id)->update(['gestemd' => $data->status]);
     }
 
     public function getAuthPassword()

@@ -1,20 +1,20 @@
 <?php
 // user role logic here...
-$user_role = "admin"; //this is for testing purposes 
+$user_role = auth()->user()->id_nummer?'user':'admin'; //this is for testing purposes 
 
 ?>
 <div class="sidebar col">
     <ul id="slide-out" class="sidenav sidenav-fixed">
-            <div class="sidebar_logo_container">
-                <h5 class="">Verkiezingen</h5>
-               
-                <button class="hamburger hamburger--collapse" id="sidebar_toggle" type="button">
-                    <span class="hamburger-box">
-                      <span class="hamburger-inner"></span>
-                    </span>
-                  </button>
-              
-            </div>
+        <div class="sidebar_logo_container">
+            <h5 class="">Verkiezingen</h5>
+
+            <button class="hamburger hamburger--collapse" id="sidebar_toggle" type="button">
+                <span class="hamburger-box">
+                    <span class="hamburger-inner"></span>
+                </span>
+            </button>
+
+        </div>
         <nav-block>
             <li class="<?php echo ((\Request::is('home')) ? "active" : ""); ?>">
                 <a href="/home">
