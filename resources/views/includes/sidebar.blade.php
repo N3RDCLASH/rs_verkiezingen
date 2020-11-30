@@ -1,6 +1,16 @@
 <?php
 // user role logic here...
-$user_role = property_exists(auth()->user(),'burger_id')?'user':'admin'; //this is for testing purposes 
+if (auth()->user()){
+if(property_exists(auth()->user(),'burger_id')){
+    $user_role = 'user';
+}else {
+    $user_role= 'admin';
+}
+
+}else {
+    $user_role= 'admin';
+}
+; //this is for testing purposes 
 ?>
 <div class="sidebar col">
     <ul id="slide-out" class="sidenav sidenav-fixed">
