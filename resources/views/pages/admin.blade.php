@@ -24,6 +24,23 @@ $url = action([AdminsController::class,'update'],[$gebruiker]);
                             <label for="gebruikers_naam" class="rsv-input-label">Gebruikersnaam</label>
                         </div>
                     </div>
+
+                    <div class="row">
+                        <div class="input-field col s12">
+                            <select class="" name="rol" id="rol" required>
+                                <option value="" disabled selected>Selecteer gebruiker type</option>
+                                <option value="admin">Admin</option>
+                                <option value="super_admin">Super Admin</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="input-field col s12">
+                            <input name="gebruikers_password" id="gebruikers_password" disabled type="password"
+                                class="rsv-input" value="">
+                            <label for="gebruikers_naam" class="rsv-input-label">Gebruikers Password</label>
+                        </div>
+                    </div>
                     <div class="row">
                         <button class="waves-effect waves-light btn col s4 right login-btn" type="submit" name="action"
                             id="persoonlijke_gegevens_btn">Wijzig
@@ -36,4 +53,10 @@ $url = action([AdminsController::class,'update'],[$gebruiker]);
     </div>
 </div>
 </div>
+<?php
+echo "
+<script defer type='module'>
+    selectType({type:$gebruiker->gebruikers_naam},document.getElementById('rol'))
+</script>"
+?>
 @endsection

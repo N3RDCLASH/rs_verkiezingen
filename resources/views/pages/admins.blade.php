@@ -60,5 +60,5 @@ use App\Http\Controllers\AdminsController;
     </div>
 </div>
 @include('includes.fab')
-{{-- @include('includes.createGebruikersForm') --}}
+@include('includes.createGebruikerForm')
 @endsection

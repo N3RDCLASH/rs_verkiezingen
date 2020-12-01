@@ -36,7 +36,14 @@ class AdminsController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        // //
+        foreach ($_POST as $key => $value) {;
+            $data[$key] = htmlentities($value, ENT_QUOTES, 'UTF-8', false);
+        }
+
+        $gebruiker = new Gebruikers;
+        $gebruiker->createGebruiker($data);
+        return redirect()->action([AdminsController::class, 'index']);
     }
 
     /**
@@ -73,6 +80,7 @@ class AdminsController extends Controller
     public function update(Request $request, $id)
     {
         //
+
     }
 
     /**
