@@ -3,7 +3,7 @@
 use App\Http\Controllers\KandidatenController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\DistrictenController;
-use App\Http\Controllers\PagesController;
+use App\Http\Controllers\AdminsController;
 use App\Http\Controllers\PartijenController;
 use App\Http\Controllers\StemmenController;
 use App\Http\Controllers\Auth\RegisterController;
@@ -33,6 +33,8 @@ Route::get('/register', [RegisterController::class, 'showRegisterForm'])->name('
 Route::post('/register', [RegisterController::class, 'register'])->name('register');
 
 Route::get('/home', [HomeController::class, 'index']);
+
+Route::resource('admins', AdminsController::class);
 
 Route::resource('partijen', PartijenController::class);
 

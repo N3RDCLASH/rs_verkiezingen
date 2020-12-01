@@ -18,6 +18,11 @@ class Gebruikers extends Authenticatable
     public $timestamps = false;
 
 
+    public function getOneGebruiker($id)
+    {
+        return $this::where('gebruikers_id', $id)->limit(1)->get();
+    }
+
 
     public function getAuthPassword()
     {
