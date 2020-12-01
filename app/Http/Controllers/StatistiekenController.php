@@ -14,9 +14,9 @@ class StatistiekenController extends Controller
         $kandidaat = new Kandidaat;
         return json_encode($kandidaat->getKandidaatByDistrict($district_id));
     }
-    // public function getStemmenPartijPerDistrict($district_id)
-    // {
-    //     $partij = new Partij;
-    //     return json_encode($partij->getPartijByDistrict($district_id));
-    // }
+    public function getPartijStemmenTotaal()
+    {
+        $partij = new Partij;
+        return json_encode($partij->getPartijStemmenTotaal());
+    }
 }

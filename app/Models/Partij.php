@@ -13,10 +13,10 @@ class Partij extends Model
     public $timestamps = false;
 
 
-    // public function getPartijByDistrict($district_id)
-    // {
-    //     $this->select('partij_naam','aantal_stemmen')->where()
-    // }
+    public function getPartijStemmenTotaal()
+    {
+        return $this->select('partij_naam', 'aantal_stemmen')->get();
+    }
     public function createPartij($data)
     {
         $this::create(["partij_naam" => $data["partij_naam"], "partij_afkorting" => $data["partij_afkorting"]]);

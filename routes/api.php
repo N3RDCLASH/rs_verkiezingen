@@ -20,4 +20,5 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
 });
 
 Route::get('statistieken/kandidaten/district/{district_id}', [StatistiekenController::class, 'getStemmenKandidaatPerDistrict']);
+Route::get('statistieken/partijen', [StatistiekenController::class, 'getPartijStemmenTotaal']);
 Route::put('stemmen/{kandidaat_id}', [StemmenController::class, 'update']);

@@ -96,6 +96,15 @@ const toggleCharts =
                 drawPieChart(kandidaat, aantal_stemmen)
             }
         )
+        await fetch(`${window.location.origin}/api/statistieken/partijen`).then(res => res.json()).then(
+            (data) => {
+                console.log(data)
+                kandidaat = data.map(x => x.partij_naam)
+                aantal_stemmen = data.map(x => x.aantal_stemmen)
+                console.log(JSON.stringify([kandidaat, aantal_stemmen]))
+                drawPieChart(kandidaat, aantal_stemmen)
+            }
+        )
 
     }
 district_toggle.addEventListener('change', () => toggleCharts(district_toggle.value))
