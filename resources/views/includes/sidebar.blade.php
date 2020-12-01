@@ -1,13 +1,9 @@
 <?php
 // user role logic here...
-if (auth()->user()){
-if(property_exists(auth()->user(),'burger_id')){
-    $user_role = 'user';
-}else {
-    $user_role= 'admin';
-}
+if (auth('web')->user()){
+$user_role = 'user';
 
-}else {
+}else if(auth('admin')->user()) {
     $user_role= 'admin';
 }
 ; //this is for testing purposes 

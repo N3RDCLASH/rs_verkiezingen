@@ -29,10 +29,13 @@ class HomeController extends Controller
      */
     public function index()
     {
-        // dd(Auth::guard('admin')->user());
-        if (Auth::user() !== NULL || Auth::guard('admin')->user())
-            return Auth::guard('admin')->user()->gebruikers_id ? $this->admin() : $this->user();
-        else {
+        // dd(Auth::guard('web')->user());
+
+        if (auth('web')->user()) {
+            return $this->user();
+        } else if (auth('admin')->user()) {
+            return $this->admin();
+        } else {
             return redirect()->action([LoginController::class, 'index']);
         }
     }
